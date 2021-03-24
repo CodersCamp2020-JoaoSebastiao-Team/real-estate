@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import Nav from '../src/components/nav'
 
@@ -8,7 +7,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Nav></Nav>
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           When you’re looking for a place, we’re ready to help.
         </p>

@@ -4,11 +4,31 @@
     justify-content: center;
     width: 100%;
     padding: 5px 20px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: var(--light-beige);
+    color: var(--dark-beige);
     .nav-left,
-    .nav-center,
     .nav-right{
-        align-items: center;
-        justify-content: space-around;
+        width: 50%;
+        ul{
+            list-style: none;
+            padding: 0;
+            li{
+                display: inline-block;
+                padding: 0 10px;
+                cursor: pointer;
+            }
+            li:hover{
+                color: var(--black);
+            }
+        }
+    }
+    .nav-left{
+        text-align: left;
+    }
+    .nav-right{
+        text-align: right;
     }
 
     .nav-center{
@@ -16,5 +36,11 @@
         position: absolute;
         top:0;
         left: 0;
+        .nav-logo{
+            width: 50px;
+            height: auto;
+            position: absolute;
+            left: calc(50vw - 25px);
+        }
     }
   }

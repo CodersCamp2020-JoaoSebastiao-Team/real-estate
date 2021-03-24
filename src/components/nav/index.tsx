@@ -1,9 +1,10 @@
 import './index.scss';
 import React from 'react';
+import logo from './real-estate-logo.png';
 
 const Nav = () => {
   return (
-    <div className="flex-wrapper">
+    <div className="flex-wrapper" >
       <div className="nav-left line-item item-half">
         <ul>
           <li className="line-item">Buy</li>
@@ -12,7 +13,7 @@ const Nav = () => {
         </ul>
       </div>
       <div className="nav-center line-item">
-        <img src="../../real-estate-logo.png"></img>
+        <img src={logo} alt="Logo" className="nav-logo"></img>
       </div>
       <div className="nav-right line-item item-half">
         <ul>
