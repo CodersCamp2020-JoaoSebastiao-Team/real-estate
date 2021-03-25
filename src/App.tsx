@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import Nav from '../src/components/nav'
+import Hero from '../src/components/hero'
 import Home from '../src/pages/home'
 import Buy from '../src/pages/buy'
 import Agent from '../src/pages/agent'
@@ -17,7 +18,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Router>
+        
+      <Router>
         <Nav></Nav>
         <div>
           <Switch>
@@ -54,6 +56,7 @@ function App() {
           Real Estate App
         </a>
       </header>
+      <Hero/>
     </div>
   );
 }

@@ -10,8 +10,13 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background: url('../../asstets/images/background.png') no-repeat center center;
+    background-image: url('../../asstets/images/background.png');
   }
+  
+  img {
+    width: 100%;
+    height: auto;
+}
 
   main {
     padding: 1rem;
