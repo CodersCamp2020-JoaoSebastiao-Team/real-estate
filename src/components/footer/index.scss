@@ -1,0 +1,31 @@
+.footer-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--light-beige);
+    min-height: 60px;
+    padding: 10px;
+    .line-item{
+        display: inline-block;
+    }
+    .footer-left,
+    .footer-right{
+        width: 50%;
+    }
+    .footer-right{
+        text-align: right;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+          color: var(--dark-beige);
+          display: inline-block;
+          padding: 0 10px;
+          cursor: pointer;
+        }
+        .line-item:hover {
+          color: var(--black);
+        }
+    }
+}

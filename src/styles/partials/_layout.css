@@ -8,7 +8,7 @@
     padding: 0;
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
     background: url('../../asstets/images/background.png') no-repeat center center;
   }
@@ -18,13 +18,18 @@
     margin: auto;
   }
 
+  .main{
+    height: 100%;
+  }
   .centered {
     text-align: center;
   }
 
   .App{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .line-item{
