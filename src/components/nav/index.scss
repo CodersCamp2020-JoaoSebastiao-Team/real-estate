@@ -1,46 +1,131 @@
-.flex-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 5px 20px;
-    box-sizing: border-box;
-    position: relative;
-    background-color: var(--light-beige);
-    color: var(--dark-beige);
-    .nav-left,
-    .nav-right{
-        width: 50%;
-        ul{
-            list-style: none;
-            padding: 0;
-            li{
-                display: inline-block;
-                padding: 0 10px;
-                cursor: pointer;
-            }
-            li:hover{
-                color: var(--black);
-            }
-        }
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 60px;
+  background-color: var(--light-beige);
+  color: var(--dark-beige);
+  .nav-left,
+  .nav-right {
+    width: 50%;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        color: var(--dark-beige);
+        display: inline-block;
+        padding: 0 10px;
+        cursor: pointer;
+      }
+      li:hover {
+        color: var(--black);
+      }
     }
-    .nav-left{
-        text-align: left;
-    }
-    .nav-right{
-        text-align: right;
-    }
-
-    .nav-center{
-        width: 40px;
-        position: absolute;
-        top:0;
-        left: 0;
-        .nav-logo{
-            width: 50px;
-            height: auto;
-            position: absolute;
-            left: calc(50vw - 25px);
-        }
+    @media (max-width: 768px){
+        display: none;
     }
   }
+  .nav-left {
+    text-align: left;
+  }
+  .nav-right {
+    text-align: right;
+  }
+
+  .nav-center {
+    width: 40px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    .nav-logo {
+      width: 50px;
+      height: auto;
+      position: absolute;
+      left: calc(50vw - 25px);
+    }
+  }
+}
+.nav-desktop{
+    @media (max-width: 768px){
+        display: none;
+    }
+}
+.nav-mobile{
+    @media (min-width: 769px){
+        display: none;
+    }
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 13px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: var(--dark-beige);
+}
+
+/*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  top: 0;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: var(--light-beige);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: var(--dark-beige);
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: var(--dark-beige);
+  padding-top: 8px;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
