@@ -2,6 +2,20 @@ const Buy = () => {
   return(
     <div>
       <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+      <h2>Buy page</h2>
+
     </div>
   );
 };
