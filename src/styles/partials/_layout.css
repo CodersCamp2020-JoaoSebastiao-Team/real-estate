@@ -10,7 +10,6 @@
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-    background: url('../../asstets/images/background.png') no-repeat 100% 100%;
   }
 
   main {
@@ -19,7 +18,7 @@
   }
 
   .main{
-    min-height: 82vh;
+    min-height: 10vh;
   }
   .centered {
     text-align: center;
