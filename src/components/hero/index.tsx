@@ -1,5 +1,6 @@
-import './hero.scss';
+import './index.scss';
 import React from 'react';
+import { HiSearch } from "react-icons/hi";
 
 const Hero = () => {
     return(
@@ -10,12 +11,12 @@ const Hero = () => {
                     <form className="hero-search-bar" action="">
                         <input type="text" placeholder="Search.." name="search"/>
                         <button type="submit">
-                            <i className="fa fa-search"></i>
+                            <HiSearch/>
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 export default Hero;
