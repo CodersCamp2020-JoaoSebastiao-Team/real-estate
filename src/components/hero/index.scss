@@ -1,0 +1,52 @@
+.hero-image {
+    height: 100vh;
+    /* Position and center the image to scale nicely on all screens */
+    background-image: url('./background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+  
+  /* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--beige);
+  }
+  
+.hero-search-bar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+  
+  /* Style the submit button */
+.hero-search-bar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: var(--beige);
+    color: white;
+    font-size: 17px;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+.hero-search-bar button:hover {
+    background: var(--darker-blue);
+}
+  
+  /* Clear floats */
+.form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
