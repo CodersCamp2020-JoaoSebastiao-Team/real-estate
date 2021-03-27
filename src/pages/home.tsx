@@ -1,7 +1,7 @@
 import Listing from '../components/listing'
 import listingProps from '../components/listing/listingProps'
 import Hero from '../components/hero'
-import CardsSection from '../components/about-section'
+import CardsSection from '../components/card-section'
 
 
 const myProps: listingProps = { width: "300px", height: "202px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg",margin: "0",price: "300zł",address: "Miasto ul.Ulica 1",size: "127 m2" , color: "white"};

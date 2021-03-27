@@ -1,4 +1,3 @@
-
 import './index.scss';
 
 const Card:React.FC<{icon: string ,title:string, desc:string, button:string}> = ({icon, title, desc, button}) => {
@@ -11,7 +10,7 @@ const Card:React.FC<{icon: string ,title:string, desc:string, button:string}> = 
         <div className="card-description">
           <h6>{title}</h6>
           <p>{desc}</p>
-          <button className="card-button">{button}</button>
+          <a href="/sell" className="btn">{button}</a>
         </div>
       </div>
       
