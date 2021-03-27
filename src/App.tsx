@@ -6,8 +6,6 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import Nav from '../src/components/nav'
-import Hero from '../src/components/hero'
-import CardsSection from '../src/components/about-section'
 import Footer from '../src/components/footer'
 import Home from '../src/pages/home'
 import Buy from '../src/pages/buy'
@@ -59,8 +57,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <Hero/>
-        <CardsSection/>
         <Footer/>
       </Router>
     </div>
