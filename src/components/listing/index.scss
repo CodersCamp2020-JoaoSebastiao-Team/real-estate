@@ -1,9 +1,12 @@
 .listing-wrapper{
+    position: relative;
+    transition: transform 0.3s;
     display: inline-block;
     background-color: var( --light-white);
     margin: 10px;
     border-radius: 5px;
     padding: 5px;
+    box-sizing: border-box;
     .listing-picture{
         cursor: pointer;
         width: 100%;
@@ -11,6 +14,8 @@
         box-sizing: border-box;
     }
     .listing-description{
+        box-sizing: content-box;
+        width: calc(100% - 5px);
         p{
             font-weight: 600;
             margin-top: 0;
@@ -18,8 +23,19 @@
             font-size: 16px;
             line-height: 18px;
         }
+        p:hover{
+            color: var(--light-beige);
+        }
     }
-
-
+    .listing-description:hover{
+        background-color: rgba(120,106,102,0.5);
+        color: var(--light-beige);
+    }
+}
+.listing-wrapper:hover{
+    background-color: var(--dark-beige);
+    color: var(--light-beige);
+    transform: scale(1.25);
+    z-index: 10;
 }
 
