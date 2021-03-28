@@ -23,7 +23,7 @@ const Listing = () => {
                 });
     }, []);
 
-    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${dataDetails?.description}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black" };
+    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: `${dataDetails?.images[0]}`, margin: "10px", price: `${dataDetails?.description}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black" };
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
             <h5>See the details of our announcement:</h5>

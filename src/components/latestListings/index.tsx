@@ -38,7 +38,7 @@ const LatestListings = () => {
             <h5>See our latest announcements!</h5>
             <div className="grid-container">
                 {data.slice(0,size).map((listing: IListing, index) => (
-                    <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "200px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "white" }} />
+                    <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "200px", url: `${listing.images[0]}`, margin: "0", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "white" }} />
                 ))}
             </div>
         </>
