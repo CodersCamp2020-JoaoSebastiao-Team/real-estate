@@ -2,7 +2,8 @@ import Listing from '../components/listing'
 import LatestListings from '../components/latestListings'
 import listingProps from '../components/listing/listingProps'
 import Hero from '../components/hero'
-import CardsSection from '../components/about-section'
+import CardsSection from '../components/card-section'
+import '../styles/partials/_typography.css'
 
 
 let myProps: listingProps = { width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
