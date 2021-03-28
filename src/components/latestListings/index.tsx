@@ -4,19 +4,6 @@ import listingProps from '../listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../../interfaces'
 
-const bubbleSort = (arr: any) => {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                const temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    return arr;
-};
-
 const LatestListings = () => {
     const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
     const [data, setdata] = useState<IListing[]>([]);
@@ -37,7 +24,6 @@ const LatestListings = () => {
                             }
                         }
                     }
-                    console.log("data: ", data.DATA);
                     setdata(data.DATA);
                 })
                 .catch((error) => {
@@ -46,12 +32,13 @@ const LatestListings = () => {
         }
     }, []);
 
-    let myProps: listingProps = { width: "300px", height: "202px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: "300zł", address: "Miasto ul.Ulica 1", size: "127 m2", color: "white" };
+    let myProps: listingProps = {id: "", width: "", height: "", url: "", margin: "0", price: "", address: "", size: "", color: "white" };
     return (
         <>
+            <h5>See our latest announcements!</h5>
             <div className="grid-container">
-                {data.slice(0,size).map((user: IListing, index) => (
-                    <Listing key={index} {...myProps = { width: "300px", height: "200px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: `${user.description}`, address: `${user.country} ${user.city} ${user.street}`, size: `${user.status}`, color: "white" }} />
+                {data.slice(0,size).map((listing: IListing, index) => (
+                    <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "200px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "white" }} />
                 ))}
             </div>
         </>

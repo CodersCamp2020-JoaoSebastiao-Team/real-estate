@@ -3,7 +3,7 @@ import React from 'react';
 import listingProps from '../listing/listingProps'
 import {Link} from 'react-router-dom';
 
-const Listing = (props:listingProps) => {
+const ListingDetails = (props:listingProps) => {
     return (
         <>
       <div className="listing-wrapper" style={{width: `${props.width}`, height: `${props.height}`, position: 'relative', margin: `${props.margin}`}}>
@@ -17,4 +17,4 @@ const Listing = (props:listingProps) => {
       </>
     );
   };
-  export default Listing;
+  export default ListingDetails;

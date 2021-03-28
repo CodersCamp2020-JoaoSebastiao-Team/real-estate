@@ -17,6 +17,7 @@ import Contact from '../src/pages/contact'
 import About from '../src/pages/about'
 import Services from '../src/pages/services'
 import Privacy from '../src/pages/privacy'
+import Listing from '../src/pages/listing'
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route path="/privacy">
               <Privacy />
+            </Route>
+            <Route path="/listing">
+              <Listing />
             </Route>
           </Switch>
         </div>

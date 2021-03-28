@@ -24,13 +24,13 @@ const Buy = () => {
     }
   }, []);
 
-  let myProps: listingProps = { width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+  let myProps: listingProps = {id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundImage: `url(${background})`, padding: '20px 0'}}>
       <h5>Real Estate & Homes For Sale</h5>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
-        {data.map((user: IListing, index) => (
-          <Listing key={index} {...myProps = { width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${user.description}`, address: `${user.country} ${user.city} ${user.street}`, size: `${user.status}`, color: "black" }} />
+        {data.map((listing: IListing, index) => (
+          <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
         ))}
       </div>
 
