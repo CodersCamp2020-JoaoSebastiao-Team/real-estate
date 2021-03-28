@@ -18,7 +18,8 @@
   }
 
   .main{
-    min-height: 10vh;
+    min-height: 80vh;
+    background-image: url('../../asstets/images/background.png');
   }
   .centered {
     text-align: center;
@@ -40,3 +41,34 @@
     width: 50%;
     height: 100%;
   }
+
+  .btn {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid var(--beige);
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: white;
+    background-color: var(--beige);
+    border-radius: 0.5rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem (--shadow);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform:none;
+}
