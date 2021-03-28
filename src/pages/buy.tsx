@@ -2,6 +2,7 @@ import Listing from '../components/listing'
 import listingProps from '../components/listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../interfaces'
+import background from '../asstets/images/background.png';
 
 const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
@@ -25,9 +26,9 @@ const Buy = () => {
 
   let myProps: listingProps = { width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h2>Buy page</h2>
-      <div>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundImage: `url(${background})`, padding: '20px 0'}}>
+      <h5>Real Estate & Homes For Sale</h5>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
         {data.map((user: IListing, index) => (
           <Listing key={index} {...myProps = { width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${user.description}`, address: `${user.country} ${user.city} ${user.street}`, size: `${user.status}`, color: "black" }} />
         ))}

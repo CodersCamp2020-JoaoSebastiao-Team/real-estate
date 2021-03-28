@@ -19,7 +19,8 @@ const bubbleSort = (arr: any) => {
 
 const LatestListings = () => {
     const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
-    const [data, setdata] = useState<IListing[]>([])
+    const [data, setdata] = useState<IListing[]>([]);
+    const size = 6;
     useEffect(() => {
         if (data.length === 0) {
             fetch(url, {
@@ -48,9 +49,9 @@ const LatestListings = () => {
     let myProps: listingProps = { width: "300px", height: "202px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: "300zł", address: "Miasto ul.Ulica 1", size: "127 m2", color: "white" };
     return (
         <>
-            <div className="grid-container" style={{ width: '100%', justifyContent: 'center', display: 'grid', gridTemplateColumns: 'repeat(3,300px)', gridTemplateRows: 'repeat(3,200px)', marginTop: '30px' }}>
-                {data.map((user: IListing, index) => (
-                    <Listing key={index} {...myProps = { width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${user.description}`, address: `${user.country} ${user.city} ${user.street}`, size: `${user.status}`, color: "black" }} />
+            <div className="grid-container">
+                {data.slice(0,size).map((user: IListing, index) => (
+                    <Listing key={index} {...myProps = { width: "300px", height: "200px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "0", price: `${user.description}`, address: `${user.country} ${user.city} ${user.street}`, size: `${user.status}`, color: "white" }} />
                 ))}
             </div>
         </>
