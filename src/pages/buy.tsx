@@ -30,7 +30,7 @@ const Buy = () => {
       <h5>Real Estate & Homes For Sale</h5>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
         {data.map((listing: IListing, index) => (
-          <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "270px", url: "https://gratka.pl/blog/wp-content/uploads/2019/07/5784b4194bbbf_o.jpg", margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
+          <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
         ))}
       </div>
 
