@@ -19,6 +19,7 @@
 
   .main{
     min-height: 80vh;
+    background-image: url('../../asstets/images/background.png');
   }
   .centered {
     text-align: center;
