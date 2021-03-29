@@ -2,7 +2,7 @@ export default interface listingProps {
     id: string;
     width: string;
     height: string;
-    url: string;
+    url: string[];
     margin: string;
     price: string;
     address: string;

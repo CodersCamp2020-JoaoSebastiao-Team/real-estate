@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import React, { useState, useEffect, useRef } from 'react';
-import listingProps from '../components/listing/listingProps'
+import listingProps from '../components/listing-details/listingProps'
 import { IListing } from '../interfaces';
 import ListingDetails from '../components/listing-details';
 
@@ -23,10 +23,9 @@ const Listing = () => {
                 });
     }, []);
 
-    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: `${dataDetails?.images[0]}`, margin: "10px", price: `${dataDetails?.description}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black" };
+    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: dataDetails?.images!, margin: "10px", price: `${dataDetails?.description}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black" };
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
-            <h5>See the details of our announcement:</h5>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                     <ListingDetails {...myProps}/>
             </div>
