@@ -20,6 +20,7 @@
   .main{
     min-height: 80vh;
     background-image: url('../../asstets/images/background.png');
+    /* background-color: var(--background); */
   }
   .centered {
     text-align: center;
@@ -55,12 +56,21 @@
     background-color: var(--beige);
     border-radius: 0.5rem;
 }
+.btn.blocked{
+    background-color: var(--dark-grey);
+    cursor: initial;
+}
 
 .btn:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem (--shadow);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
+}
+.btn.blocked:hover{
+  cursor: initial;
+  box-shadow: none;
+  transform: none;
 }
 
 .btn:focus {

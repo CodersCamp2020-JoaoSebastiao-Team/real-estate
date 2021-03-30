@@ -35,7 +35,7 @@ const LatestListings = () => {
     let myProps: listingProps = {id: "", width: "", height: "", url: "", margin: "0", price: "", address: "", size: "", color: "white" };
     return (
         <>
-            <h5>See our latest announcements!</h5>
+            <h5>See our latest listings!</h5>
             <div className="grid-container">
                 {data.slice(0,size).map((listing: IListing, index) => (
                     <Listing key={index} {...myProps = {id: `${listing._id}`, width: "300px", height: "200px", url: `${listing.images[0]}`, margin: "0", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "white" }} />
