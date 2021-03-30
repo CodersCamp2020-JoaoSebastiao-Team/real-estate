@@ -8,4 +8,6 @@ export default interface listingProps {
     address: string;
     size: string;
     color: string;
+    type: string;
+    text: string;
 }

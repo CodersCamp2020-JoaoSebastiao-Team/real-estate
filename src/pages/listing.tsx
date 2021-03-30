@@ -16,27 +16,35 @@ const Listing = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data.DATA);
                 setdataDetails(data.DATA);
+                const interval = setInterval(()=>{
+                    const button = document.getElementsByClassName("btn")[0];
+                    console.log("button: ", button.textContent)
+                    if (button.textContent === ("Reserved" || "RESERVED")){
+                        button.classList.add("blocked");
+                    }
+                    else{
+                        button.classList.remove("blocked");
+                    }
+                },1000);
+                setTimeout(()=>{
+                    clearInterval(interval);
+                },5000)
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
     }, []);
 
-    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: dataDetails?.images!, margin: "10px", price: `${dataDetails?.description}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black" };
+    let myProps: listingProps = { id: ``, width: "300px", height: "270px", url: dataDetails?.images!, margin: "10px", price: `${dataDetails?.estateType}`, address: `${dataDetails?.country} ${dataDetails?.city} ${dataDetails?.street}`, size: `${dataDetails?.status}`, color: "black", type: `${dataDetails?.listingStatusType}`, text: `${dataDetails?.description}` };
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                     <ListingDetails {...myProps} />
                 </div>
-                <div className="relatedListings">
-
-                </div>
                 <Slider />
             </div>
-            
         </>
     );
 };
