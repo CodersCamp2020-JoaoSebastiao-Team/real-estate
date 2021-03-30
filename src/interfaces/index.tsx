@@ -20,7 +20,7 @@ export interface IListing {
     city: String;
     street: String;
     zipCode: String;
-    images: String[];
+    images: string[];
     status: ListingStatus;
     listingStatusType: ListingStatusTypes;
     estateType: EstateTypes;
