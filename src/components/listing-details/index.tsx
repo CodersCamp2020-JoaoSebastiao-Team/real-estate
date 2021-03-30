@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
+
 const ListingDetails = (props:listingProps) => {
   const images = [];
   if (props.url){
@@ -17,7 +18,6 @@ const ListingDetails = (props:listingProps) => {
       })
     }
   }
-
 
     return (
         <>
@@ -32,9 +32,6 @@ const ListingDetails = (props:listingProps) => {
             <p className="listing-size"><span>Size:</span> {props.size}</p>
       </div>
       <div className="btn">Buy</div>
-      </div>
-      <div className="relatedListings">
-
       </div>
       </>
     );
