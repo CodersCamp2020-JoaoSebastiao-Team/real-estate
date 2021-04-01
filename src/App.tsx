@@ -18,6 +18,8 @@ import About from '../src/pages/about'
 import Services from '../src/pages/services'
 import Privacy from '../src/pages/privacy'
 import Listing from '../src/pages/listing'
+import Register from '../src/pages/register'
+import Reset from '../src/pages/reset_password'
 
 function App() {
   return (
@@ -40,6 +42,12 @@ function App() {
             </Route>
             <Route path="/Login">
               <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/reset_password">
+              <Reset />
             </Route>
             <Route path="/offices">
               <Offices />
