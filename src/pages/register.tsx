@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import LoginPanel from '../components/login'
+import RegisterPanel from '../components/register'
 
-const Login = () => {
+const Register = () => {
   return(
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-    <LoginPanel />
+    <RegisterPanel />
     </div>
   );
 };
 
-export default Login;
+export default Register;
