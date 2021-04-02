@@ -1,5 +1,6 @@
 .hero-image {
-    height: 100vh;
+    height: calc(100vh - 60px);
+    width: 100vw;
     /* Position and center the image to scale nicely on all screens */
     background-image: url('./background.png');
     background-position: center;

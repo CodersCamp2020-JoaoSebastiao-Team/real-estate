@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import LoginPanel from '../components/login'
+import ResetPassword from '../components/reset_password'
 
-const Login = () => {
+const Reset = () => {
   return(
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-    <LoginPanel />
+    <ResetPassword />
     </div>
   );
 };
 
-export default Login;
+export default Reset;

@@ -1,0 +1,41 @@
+.galery-wrapper{
+    position: relative;
+    margin: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 60vw;
+    @media (max-width: 768px){
+        width: 80vw;
+    }
+    @media (max-width: 768px){
+        width: 90vw;
+    }
+}
+
+.listing_details-wrapper{
+    width: 70vw;
+    background-color: rgba(255,255,255,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    @media (max-width: 768px){
+        width: 90vw;
+    }
+    @media (max-width: 768px){
+        width: 100vw;
+    }
+    .listing-description{
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        p{
+            color : var(--dark-beige);
+            font-weight: 500;
+        }
+        span{
+            font-weight: 900;
+        }
+    }
+}

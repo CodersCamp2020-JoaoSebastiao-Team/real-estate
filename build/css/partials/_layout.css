@@ -36,3 +36,35 @@
     width: 50%;
     height: 100%;
   }
+
+
+.btn {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  border: 0.1rem solid var(--light-beige);
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: var(--light-beige);
+  border-radius: 1rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 var(--shadow);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform:none;
+}

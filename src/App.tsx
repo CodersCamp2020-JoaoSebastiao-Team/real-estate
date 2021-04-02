@@ -6,8 +6,6 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import Nav from '../src/components/nav'
-import Hero from '../src/components/hero'
-import CardsSection from '../src/components/about-section'
 import Footer from '../src/components/footer'
 import Home from '../src/pages/home'
 import Buy from '../src/pages/buy'
@@ -19,6 +17,9 @@ import Contact from '../src/pages/contact'
 import About from '../src/pages/about'
 import Services from '../src/pages/services'
 import Privacy from '../src/pages/privacy'
+import Listing from '../src/pages/listing'
+import Register from '../src/pages/register'
+import Reset from '../src/pages/reset_password'
 
 function App() {
   return (
@@ -42,6 +43,12 @@ function App() {
             <Route path="/Login">
               <Login />
             </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/reset_password">
+              <Reset />
+            </Route>
             <Route path="/offices">
               <Offices />
             </Route>
@@ -57,10 +64,11 @@ function App() {
             <Route path="/privacy">
               <Privacy />
             </Route>
+            <Route path="/listing">
+              <Listing />
+            </Route>
           </Switch>
         </div>
-        <Hero/>
-        <CardsSection/>
         <Footer/>
       </Router>
     </div>
