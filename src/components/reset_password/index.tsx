@@ -16,7 +16,7 @@ const ResetPassword = () => {
         event.preventDefault();
     }
     return (
-        <div className="listing_details-wrapper" >
+        <div className="reset_password_details-wrapper" >
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>

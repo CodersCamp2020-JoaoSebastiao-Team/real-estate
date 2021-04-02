@@ -1,4 +1,4 @@
-.listing_details-wrapper{
+.register_details-wrapper{
     width: 40vw;
     min-height: 400px;
     background-color: rgba(255,255,255,0.6);
@@ -8,7 +8,7 @@
     justify-content: center;
     border-radius: 10px;
     margin: 30px 0;
-    @media (max-width: 1200px){
+    @media (max-width: 1200px){ 
         width: 60vw;
     }
     @media (max-width: 768px){
