@@ -20,6 +20,7 @@ import Privacy from '../src/pages/privacy'
 import Listing from '../src/pages/listing'
 import Register from '../src/pages/register'
 import Reset from '../src/pages/reset_password'
+import Account from '../src/pages/account'
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/account">
+              <Account />
             </Route>
             <Route path="/reset_password">
               <Reset />
