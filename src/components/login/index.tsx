@@ -37,7 +37,7 @@ const LoginPanel = () => {
         event.preventDefault();
     }
     return (
-        <div className="listing_details-wrapper" >
+        <div className="login_details-wrapper" >
             <Form onSubmit={HandleSubmit}>
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>
