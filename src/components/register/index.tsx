@@ -56,7 +56,7 @@ const RegisterPanel = () => {
             });
         event.preventDefault();
     }
-    return (
+    return ( 
         <div className="listing_details-wrapper" >
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="name">
