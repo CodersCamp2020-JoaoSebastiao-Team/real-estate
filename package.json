@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-burger-menu": "^2.6.2"
+    "@types/react-burger-menu": "^2.6.2",
+    "eslint-plugin-jest": "^24.3.2"
   }
 }
