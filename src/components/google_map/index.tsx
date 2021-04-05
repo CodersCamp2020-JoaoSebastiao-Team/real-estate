@@ -2,6 +2,8 @@ import React, {useState, useRef} from "react";
 // swr- fetching api using hooks
 import useSwr from "swr"; 
 import GoogleMapReact from "google-map-react";
+
+//not added yet
 import useSupercluster from "use-supercluster";
 import './index.scss';
 
