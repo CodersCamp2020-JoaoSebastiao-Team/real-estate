@@ -19,8 +19,8 @@
 
   .main{
     min-height: 80vh;
-    background-image: url('../../asstets/images/background.png');
-    /* background-color: var(--background); */
+    /* background-image: url('../../asstets/images/background.png'); */
+    background-color: var(--background);
   }
   .centered {
     text-align: center;

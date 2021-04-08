@@ -13,6 +13,7 @@ const CardsSection = () => {
           <Card icon={Buy}
                 title="Find a house" 
                 desc="you can find a house of your dreams with us. Start by learning how to find the best offers." 
+                link='/buy'
                 button="BUY A HOUSE"/>
         </li>
         <li>
@@ -20,6 +21,7 @@ const CardsSection = () => {
           icon={Sell}
           title="Sell a house" 
           desc="Reach the largest audience of shoppers with a free listing on our page. Start by learning how to sell for sale by owner." 
+          link='/sell'
           button="SEE YOUR OPTIONS"/>
         </li>
         <li>
@@ -27,6 +29,7 @@ const CardsSection = () => {
           icon={Agent}
           title="Find your agent" 
           desc="Our Premier Agents are among the best in the business. Learn how to pick the right one for you." 
+          link='/agent'
           button="LOOK FOR AGENTS"/>
         </li>
       </ul>
