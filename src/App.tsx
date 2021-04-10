@@ -1,6 +1,4 @@
-import React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
@@ -21,11 +19,13 @@ import Listing from '../src/pages/listing'
 import Register from '../src/pages/register'
 import Reset from '../src/pages/reset_password'
 import Account from '../src/pages/account'
+import AccountSettings from '../src/pages/account_settings'
+import AccountListings from '../src/pages/account_listings'
+import AccountReservations from '../src/pages/account_reservations'
 
 function App() {
   return (
     <div className="App">
-        <Router>
         <Nav></Nav>
         <div className="main">
           <Switch>
@@ -71,12 +71,19 @@ function App() {
             <Route path="/listing">
               <Listing />
             </Route>
+            <Route path="/account/settings">
+              <AccountSettings />
+            </Route>
+            <Route path="/account/listings">
+              <AccountListings />
+            </Route>
+            <Route path="/account/reservations">
+              <AccountReservations />
+            </Route>
           </Switch>
         </div>
         <Footer/>
-      </Router>
     </div>
   );
 }
-
 export default App;
