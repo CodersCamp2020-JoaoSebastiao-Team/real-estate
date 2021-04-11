@@ -16,7 +16,8 @@ const ContactForm = () => {
   }
 
   return (
-    <>
+    <div className="contact_form-wrapper">
+      <h5>We are here for you! We will answer all your questions.</h5>
       <form className="contact-form" onSubmit={sendEmail}>
         <input type="hidden" name="contact_number" />
         <label>Name</label>
@@ -27,9 +28,9 @@ const ContactForm = () => {
         <input type="text" name="subject" />
         <label>Message</label>
         <textarea name="html_message" />
-        <input type="submit" value="Send" />
+        <input type="submit" value="Send" className="contact-button"/>
       </form>
-    </>
+    </div>
   );
 }
 export default ContactForm;

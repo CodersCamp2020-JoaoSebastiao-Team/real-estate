@@ -20,13 +20,14 @@ import Privacy from '../src/pages/privacy'
 import Listing from '../src/pages/listing'
 import Register from '../src/pages/register'
 import Reset from '../src/pages/reset_password'
+import background from './asstets/images/background.png';
 
 function App() {
   return (
     <div className="App">
         <Router>
         <Nav></Nav>
-        <div className="main">
+        <div className="main" style={{backgroundImage: `url(${background})`}}>
           <Switch>
             <Route exact path="/">
               <Home />

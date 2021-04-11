@@ -2,7 +2,6 @@ import Listing from '../components/listing'
 import listingProps from '../components/listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../interfaces'
-import background from '../asstets/images/background.png';
 import ImageGallery from 'react-image-gallery';
 
 const Buy = () => {
@@ -28,7 +27,7 @@ const Buy = () => {
   let myProps: listingProps = {id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   return (
     <>
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundImage: `url(${background})`, padding: '20px 0'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0'}}>
       <h5>Real Estate & Homes For Sale</h5>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
         {data.map((listing: IListing, index) => (
