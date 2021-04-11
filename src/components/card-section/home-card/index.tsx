@@ -1,6 +1,6 @@
 import './index.scss';
 
-const Card:React.FC<{icon: string ,title:string, desc:string, button:string}> = ({icon, title, desc, button}) => {
+const Card:React.FC<{icon: string ,title:string, desc:string, link:string, button:string}> = ({icon, title, desc, link, button}) => {
   return (
     <div className="card-wrapper">
       <div className="card-wrapper-content flex">
@@ -10,7 +10,7 @@ const Card:React.FC<{icon: string ,title:string, desc:string, button:string}> = 
         <div className="card-description">
           <h6>{title}</h6>
           <p>{desc}</p>
-          <a href="/sell" className="btn">{button}</a>
+          <a href={link} className="btn">{button}</a>
         </div>
       </div>
       

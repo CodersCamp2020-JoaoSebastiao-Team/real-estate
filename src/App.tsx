@@ -22,12 +22,13 @@ import Account from '../src/pages/account'
 import AccountSettings from '../src/pages/account_settings'
 import AccountListings from '../src/pages/account_listings'
 import AccountReservations from '../src/pages/account_reservations'
+import background from './asstets/images/background.png';
 
 function App() {
   return (
     <div className="App">
         <Nav></Nav>
-        <div className="main">
+        <div className="main" style={{backgroundImage: `url(${background})`}}>
           <Switch>
             <Route exact path="/">
               <Home />
