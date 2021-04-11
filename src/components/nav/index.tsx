@@ -3,6 +3,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import logo from './real-estate-logo.png';
 import {slide as Menu} from 'react-burger-menu';
+import { FaUser } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 const Nav = () => {
   return (
@@ -24,6 +26,9 @@ const Nav = () => {
           <ul>
           <Link to="/offices"><li className="line-item">Offices</li></Link>
           <Link to="/login"><li className="line-item">Sign in</li></Link>
+          <IconContext.Provider value={{ size: "1.5em" ,className: "social-icons" }}>
+          <Link to="/account"><li className="line-item"><FaUser /></li></Link>
+          </IconContext.Provider>
           </ul>
         </div>
         <div className="nav-mobile">
