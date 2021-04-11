@@ -23,8 +23,12 @@ import AccountSettings from '../src/pages/account_settings'
 import AccountListings from '../src/pages/account_listings'
 import AccountReservations from '../src/pages/account_reservations'
 import background from './asstets/images/background.png';
+import {OwnerAuthRoute} from './OwnerAuthRoute'
+import {AuthRoute} from './AuthRoute'
+import {useContext} from "react";
 
 function App() {
+
   return (
     <div className="App">
         <Nav></Nav>
@@ -36,9 +40,9 @@ function App() {
             <Route path="/buy">
               <Buy />
             </Route>
-            <Route path="/sell">
+            <OwnerAuthRoute path="/sell">
               <Sell />
-            </Route>
+            </OwnerAuthRoute>
             <Route path="/agent">
               <Agent />
             </Route>
@@ -48,12 +52,12 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/account">
+            <AuthRoute path="/account">
               <Account />
-            </Route>
-            <Route path="/reset_password">
+            </AuthRoute>
+            <AuthRoute path="/reset_password">
               <Reset />
-            </Route>
+            </AuthRoute>
             <Route path="/offices">
               <Offices />
             </Route>
@@ -72,15 +76,15 @@ function App() {
             <Route path="/listing">
               <Listing />
             </Route>
-            <Route path="/account/settings">
+            <AuthRoute path="/account/settings">
               <AccountSettings />
-            </Route>
-            <Route path="/account/listings">
+            </AuthRoute>
+            <AuthRoute path="/account/listings">
               <AccountListings />
-            </Route>
-            <Route path="/account/reservations">
+            </AuthRoute>
+            <AuthRoute path="/account/reservations">
               <AccountReservations />
-            </Route>
+            </AuthRoute>
           </Switch>
         </div>
         <Footer/>

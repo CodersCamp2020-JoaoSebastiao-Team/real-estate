@@ -1,19 +1,21 @@
 import './index.scss';
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import logo from './real-estate-logo.png';
 import {slide as Menu} from 'react-burger-menu';
 import { FaUser } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-
+import {UserContext} from "../../userProvider";
+import {userTypes} from '../../enums'
 const Nav = () => {
+  const {user} = useContext(UserContext)
   return (
     <div>
       <div className="flex-wrapper">
         <div className="nav-left line-item item-half">
           <ul>
           <Link to="/buy"><li className="line-item">Buy</li></Link>
-          <Link to="/sell"><li className="line-item">Sell</li></Link>
+            {user.type===userTypes.owner&&<Link to="/sell"><li className="line-item">Sell</li></Link>}
           <Link to="/agent"><li className="line-item">Agent Finder</li></Link>
           </ul>
         </div>
@@ -25,10 +27,13 @@ const Nav = () => {
         <div className="nav-right line-item item-half">
           <ul>
           <Link to="/offices"><li className="line-item">Offices</li></Link>
-          <Link to="/login"><li className="line-item">Sign in</li></Link>
-          <IconContext.Provider value={{ size: "1.5em" ,className: "social-icons" }}>
-          <Link to="/account"><li className="line-item"><FaUser /></li></Link>
-          </IconContext.Provider>
+
+            { user.auth?
+              <IconContext.Provider value={{ size: "1.5em" ,className: "social-icons" }}>
+              <Link to="/account"><li className="line-item"><FaUser /></li></Link>
+            </IconContext.Provider>:
+              <Link to="/login"><li className="line-item">Sign in</li></Link>}
+
           </ul>
         </div>
         <div className="nav-mobile">

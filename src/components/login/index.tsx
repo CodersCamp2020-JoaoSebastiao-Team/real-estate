@@ -1,10 +1,12 @@
 import './index.scss'
-import React, { useState, useEffect } from "react";
+import React, {useContext, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
+import {UserContext} from "../../userProvider";
+import {userTypes} from '../../enums'
 const LoginPanel = () => {
+    const {user, login} = useContext(UserContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -24,8 +26,16 @@ const LoginPanel = () => {
         })
             .then(response => response.json())
             .then(data => {
+
                 if (data) {
+                    if (data.jwt2){
+                        login(data.jwt, data.jwt2, userTypes.owner);
+                    }else
+                        login(data.jwt, data.jwt2, userTypes.custom);
+
+                    user.auth = true;
                     console.log('Success:', data);
+
                 }
                 else {
                     console.log("Error!")

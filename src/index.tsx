@@ -9,14 +9,17 @@ import './styles/partials/_variables.css';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
+import {UserProvider} from "./userProvider";
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <UserProvider>
+            <Router>
+                <App />
+            </Router>
+        </UserProvider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
