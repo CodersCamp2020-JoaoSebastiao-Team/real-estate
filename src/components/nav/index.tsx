@@ -7,8 +7,9 @@ import { FaUser } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import {UserContext} from "../../userProvider";
 import {userTypes} from '../../enums'
+
 const Nav = () => {
-  const {user} = useContext(UserContext)
+  const {user, logout} = useContext(UserContext)
   return (
     <div>
       <div className="flex-wrapper">
@@ -29,9 +30,12 @@ const Nav = () => {
           <Link to="/offices"><li className="line-item">Offices</li></Link>
 
             { user.auth?
+                <>
               <IconContext.Provider value={{ size: "1.5em" ,className: "social-icons" }}>
               <Link to="/account"><li className="line-item"><FaUser /></li></Link>
-            </IconContext.Provider>:
+            </IconContext.Provider>
+                  <Link to="/home" onClick={logout}><li className="line-item">Sign out</li></Link>
+              </>:
               <Link to="/login"><li className="line-item">Sign in</li></Link>}
 
           </ul>
