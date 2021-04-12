@@ -14,3 +14,11 @@ export enum ListingStatusTypes {
     forRent = 'forRent',
     forSale = 'forSale'
 }
+
+export enum userTypes{
+    unlogged = 'unlogged',
+    custom =  'custom',
+    owner = 'owner',
+    employee = 'employee'
+
+}

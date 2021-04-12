@@ -1,6 +1,4 @@
-import React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
@@ -20,13 +18,21 @@ import Privacy from '../src/pages/privacy'
 import Listing from '../src/pages/listing'
 import Register from '../src/pages/register'
 import Reset from '../src/pages/reset_password'
+import Account from '../src/pages/account'
+import AccountSettings from '../src/pages/account_settings'
+import AccountListings from '../src/pages/account_listings'
+import AccountReservations from '../src/pages/account_reservations'
+import background from './asstets/images/background.png';
+import {OwnerAuthRoute} from './OwnerAuthRoute'
+import {AuthRoute} from './AuthRoute'
+import {useContext} from "react";
 
 function App() {
+
   return (
     <div className="App">
-        <Router>
         <Nav></Nav>
-        <div className="main">
+        <div className="main" style={{backgroundImage: `url(${background})`}}>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -34,9 +40,9 @@ function App() {
             <Route path="/buy">
               <Buy />
             </Route>
-            <Route path="/sell">
+            <OwnerAuthRoute path="/sell">
               <Sell />
-            </Route>
+            </OwnerAuthRoute>
             <Route path="/agent">
               <Agent />
             </Route>
@@ -46,9 +52,12 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/reset_password">
+            <AuthRoute path="/account">
+              <Account />
+            </AuthRoute>
+            <AuthRoute path="/reset_password">
               <Reset />
-            </Route>
+            </AuthRoute>
             <Route path="/offices">
               <Offices />
             </Route>
@@ -67,12 +76,19 @@ function App() {
             <Route path="/listing">
               <Listing />
             </Route>
+            <AuthRoute path="/account/settings">
+              <AccountSettings />
+            </AuthRoute>
+            <AuthRoute path="/account/listings">
+              <AccountListings />
+            </AuthRoute>
+            <AuthRoute path="/account/reservations">
+              <AccountReservations />
+            </AuthRoute>
           </Switch>
         </div>
         <Footer/>
-      </Router>
     </div>
   );
 }
-
 export default App;

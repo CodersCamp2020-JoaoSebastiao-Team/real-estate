@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
-
+import {userTypes} from '../../enums'
 const RegisterPanel = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ const RegisterPanel = () => {
         console.log("Submit event!!!",({
             name: event.target[0].defaultValue,
             surname: event.target[1].defaultValue,
-            userType: event.target[2].defaultValue,
+            userType: event.target[2].value,
             username: event.target[3].defaultValue,
             email: event.target[4].defaultValue,
             password: event.target[5].defaultValue
@@ -36,7 +36,7 @@ const RegisterPanel = () => {
             body: JSON.stringify({
                 name: event.target[0].defaultValue,
                 surname: event.target[1].defaultValue,
-                userType: event.target[2].defaultValue,
+                userType: event.target[2].value,
                 username: event.target[3].defaultValue,
                 email: event.target[4].defaultValue,
                 password: event.target[5].defaultValue
@@ -81,13 +81,14 @@ const RegisterPanel = () => {
                 </Form.Group>
                 <Form.Group controlId="type">
                     <Form.Label>Type</Form.Label>
-                    <Form.Control
-                        type="text"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                        value={type}
-                        onChange={(e) => setType(e.target.value)}
-                    />
+                    <Form.Control type="text" as="select" aria-label="Recipient's username"
+                                  aria-describedby="basic-addon2" value={type}
+                                  onChange={(e) => setType(e.target.value)} >
+                        <option value={userTypes.owner}>{userTypes.owner}</option>
+                        <option value={userTypes.custom}>{userTypes.custom}</option>
+                        <option value={userTypes.employee}>{userTypes.employee}</option>
+
+                    </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>

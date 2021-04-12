@@ -6,12 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import './styles/partials/_layout.css';
 import './styles/partials/_typography.css';
 import './styles/partials/_variables.css';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
+import {UserProvider} from "./userProvider";
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <UserProvider>
+            <Router>
+                <App />
+            </Router>
+        </UserProvider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
