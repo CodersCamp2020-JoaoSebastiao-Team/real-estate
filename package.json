@@ -3,20 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.13.13",
     "@brainhubeu/react-carousel": "^1.19.26",
+    "@emotion/react": "^11.1.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
+    "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.0",
     "@types/react-image-gallery": "^1.0.2",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.9",
+    "axios": "^0.21.1",
+    "emailjs-com": "^2.6.4",
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^3.1.2",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.2",
+    "react-bootstrap-form": "^0.1.4-beta6",
     "react-burger-menu": "^3.0.6",
     "react-cookie": "^4.0.3",
     "react-cookie-consent": "^6.2.3",
@@ -28,6 +37,7 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
     "react-social-media-buttons": "^1.0.8",
+    "react-spinners": "^0.10.6",
     "slick-carousel": "^1.8.1",
     "social-media-icons-react": "^1.1.2",
     "styled-components": "^5.2.1",
@@ -59,7 +69,12 @@
     ]
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
     "@types/brainhubeu__react-carousel": "^2.0.2",
+    "@types/js-cookie": "^2.2.6",
     "@types/react-burger-menu": "^2.6.2"
+  },
+  "babel": {
+    "plugins": ["@emotion"]
   }
 }

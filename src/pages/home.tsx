@@ -5,6 +5,7 @@ import Hero from '../components/hero'
 import CardsSection from '../components/card-section'
 import '../styles/partials/_typography.css'
 
+
 const Home = () => {
   return(
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

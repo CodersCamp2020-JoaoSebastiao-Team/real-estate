@@ -1,0 +1,25 @@
+.account-menu__wrapper{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    .line-item{
+        font-size: 20px;
+    }
+    .line-item:hover{
+        text-decoration: underline;
+    }
+}
+.underline-decoration{
+    height: 2px;
+    width: calc(100% - 60px);
+    background-color: var(--dark-beige);
+    position:absolute;
+    top: 40px;
+    left: 0;
+    margin: 0 30px;
+}

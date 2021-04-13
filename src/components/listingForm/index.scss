@@ -1,0 +1,70 @@
+.register_details-wrapper{
+    width: 40vw;
+    min-height: 400px;
+    background-color: rgba(255,255,255,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 30px 0;
+    @media (max-width: 1200px){ 
+        width: 60vw;
+    }
+    @media (max-width: 768px){
+        width: 90vw;
+    }
+    @media (max-width: 400px){
+        width: 100vw;
+    }
+    input,
+    button{
+        width: 300px;
+        height: 40px;
+    }
+    label{
+        width: 300px;
+        text-align: center;
+    }
+    input,
+    label{
+        font-size: 18px;
+    }
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.image-div{
+    position: relative;
+    margin: 5px 5px;
+}
+.image-div:hover .hidden-div{
+    display: block;
+}
+.hidden-delete-button {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    max-height: 30px;
+    max-width: 30px;
+
+}
+
+.hidden-div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
