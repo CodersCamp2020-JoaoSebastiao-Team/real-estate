@@ -52,35 +52,35 @@ const Buy = () => {
     }
     // SORT BY HOMETYPE
     if (state.hometype !== "") {
-      return data.hometype === state.hometype ? data.hometype === state.hometype : "no results found";
+      return data.estateType === state.hometype ? data.estateType === state.hometype : "no results found";
     }
     // SORT BY BEDROOMS
     if (state.bedroom !== "") {
-      return data.rooms >= state.bedroom;
+      return data.bedrooms >= state.bedroom;
     }
 
+    //SHOW LISTINGS IN RANGES FROM ...  TO ...
     return (
       data.price >= state.minPrice &&
       data.price <= state.maxPrice &&
-      data.floorspace >= state.minFloorSpace &&
-      data.floorspace <= state.maxFloorSpace
+      data.livingSpace >= state.minFloorSpace &&
+      data.livingSpace <= state.maxFloorSpace
     );
   });
 
+
+  //od tego momentu nie wiem jak polączyć ze sobą te filtrowania
 
   //czy tu jeszcze trzeba zrobić tak: ????
   const listingsItem = filteredData.map((item, id) => {
     return (
       <ListingItem
         key={id}
-        address={item.address}
-        image={item.image}
         city={item.city}
-        state={item.state}
-        rooms={item.rooms}
+        bedrooms={item.bedrooms}
         price={item.price}
-        floorspace={item.floorspace}
-        hometype={item.home}
+        floorspace={item.livingSpace}
+        hometype={item.estateType}
       />
     );
   });
