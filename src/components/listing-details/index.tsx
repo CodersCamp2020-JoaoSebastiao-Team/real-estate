@@ -1,20 +1,40 @@
 import './index.scss';
 import React from 'react';
-import listingProps from '../listing/listingProps'
-import {Link} from 'react-router-dom';
+import listingProps from '../listing-details/listingProps'
+import ImageGallery from 'react-image-gallery';
+import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+import { Link } from 'react-router-dom';
 
-const ListingDetails = (props:listingProps) => {
-    return (
-        <>
-      <div className="listing-wrapper" style={{width: `${props.width}`, height: `${props.height}`, position: 'relative', margin: `${props.margin}`}}>
-        <div className="picture-wrapper" ><Link to={`/listing/${props.id}`}> <img className="listing-picture" src={props.url}></img></Link></div>
-        <div className="listing-description" style={{position: 'absolute', bottom: '0px', color: `${props.color}`}}>
-            <p className="listing-price"> {props.price}</p>
-            <p className="listing-address"> {props.address}</p>
-            <p className="listing-size"> {props.size}</p>
+const ListingDetails = (props: listingProps) => {
+  const images = [];
+  if (props.url) {
+    for (const image of props.url) {
+      images.push({
+        original: image,
+        thumbnail: image
+      })
+    }
+  }
+
+  return (
+    <>
+      <div className="listing_details-wrapper" >
+        <h5>See the details of our listing:</h5>
+        <div className="galery-wrapper" style={{ position: 'relative', margin: `${props.margin}` }}>
+          <ImageGallery items={images} />
+        </div>
+        <div className="listing-description" style={{ color: `${props.color}` }}>
+          <p className="listing-price"><span>Price:</span><span>{props.price}</span></p>
+          <p className="listing-address"><span>Address:</span><span>{props.address}</span></p>
+          <p className="listing-size"><span>Size:</span><span>{props.size}</span></p>
+          <p className="listing-text"><span>Description: </span><span>{props.text}</span></p>
+        </div>
+        <div>
+          <div className="btn">{props.type === "forSale" ? "Buy" : props.type === "forRent" ? "Reserve" : "Reserved"}</div>
+          <Link to="/contact"><button className="btn">Contact with agent</button></Link>
         </div>
       </div>
-      </>
-    );
-  };
-  export default ListingDetails;
+    </>
+  );
+};
+export default ListingDetails;
