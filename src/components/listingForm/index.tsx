@@ -6,11 +6,11 @@ import Button from "react-bootstrap/Button";
 import {EstateTypes, ListingStatusTypes} from '../../enums'
 import {UserContext} from "../../userProvider";
 import x from '../../asstets/images/x.jpg';
-
+import { useHistory } from 'react-router-dom';
 
 const ListingForm = () => {
     const {user} = useContext(UserContext)
-
+    const history = useHistory();
     const [listing, setListing] = useState({
         description: '',
         country: '',
@@ -35,7 +35,6 @@ const ListingForm = () => {
     function handleSubmit(event: any) {
         const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
 
-        console.log(listing)
         fetch(url, {
             method: 'POST',
             headers: {
@@ -45,9 +44,16 @@ const ListingForm = () => {
             },
             body: JSON.stringify(listing)
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
             .then(data => {
                 console.log('Success:', data );
+                history.push(`/listing/${data.DATA._id}`)
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -76,6 +82,7 @@ const ListingForm = () => {
                     ...listing,
                     images: images
                 })
+
             })
             .catch(err => console.log(err));
     }
