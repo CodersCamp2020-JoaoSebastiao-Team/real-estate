@@ -20,5 +20,5 @@ export enum userTypes{
     custom =  'custom',
     owner = 'owner',
     employee = 'employee'
-
 }
+

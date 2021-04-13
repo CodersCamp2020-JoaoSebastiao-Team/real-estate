@@ -5,11 +5,12 @@ import Button from "react-bootstrap/Button";
 import {Link} from 'react-router-dom';
 import {UserContext} from "../../userProvider";
 import {userTypes} from '../../enums'
+import { useHistory } from 'react-router-dom';
 const LoginPanel = () => {
     const {user, login} = useContext(UserContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const history = useHistory();
     function validateForm() {
         return email.length > 0 && password.length > 0;
     }
@@ -24,18 +25,23 @@ const LoginPanel = () => {
             },
             body: JSON.stringify({ email: event.target[0].defaultValue, password: event.target[1].defaultValue, })
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
             .then(data => {
-
                 if (data) {
                     if (data.jwt2){
                         login(data.jwt, data.jwt2, userTypes.owner);
                     }else
-                        login(data.jwt, data.jwt2, userTypes.custom);
+                        login(data.jwt, '', userTypes.custom);
 
                     user.auth = true;
                     console.log('Success:', data);
-
+                    history.push('/');
                 }
                 else {
                     console.log("Error!")
