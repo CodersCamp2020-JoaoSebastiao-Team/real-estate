@@ -62,6 +62,7 @@ const RegisterPanel = () => {
             });
         event.preventDefault();
     }
+
     return (
         <div className="register_details-wrapper" >
             <Form onSubmit={handleSubmit}>
