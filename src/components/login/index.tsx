@@ -25,9 +25,14 @@ const LoginPanel = () => {
             },
             body: JSON.stringify({ email: event.target[0].defaultValue, password: event.target[1].defaultValue, })
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
             .then(data => {
-                //TODO
                 if (data) {
                     if (data.jwt2){
                         login(data.jwt, data.jwt2, userTypes.owner);
