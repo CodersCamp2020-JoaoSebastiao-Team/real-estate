@@ -55,9 +55,9 @@ function App() {
             <AuthRoute path="/account">
               <Account />
             </AuthRoute>
-            <AuthRoute path="/reset_password">
+            <Route path="/reset_password">
               <Reset />
-            </AuthRoute>
+            </Route>
             <Route path="/offices">
               <Offices />
             </Route>
