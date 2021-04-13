@@ -6,7 +6,7 @@ const FloorSpace:React.FC<{minFloor:any ,maxFloor:any, inputProp:any}> = ({ inpu
   return (
     <React.Fragment>
       <div className = "FloorContainer">
-        <h3>Floor Space</h3>
+        <h6>Floor Space</h6>
         <label htmlFor="FloorSpace">
           <input
             type="text"

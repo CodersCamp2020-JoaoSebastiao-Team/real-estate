@@ -5,7 +5,7 @@ const Prices:React.FC<{minProp:any ,maxProp:any, inputProp:any}> = ({ minProp, m
   return (
     <React.Fragment>
       <div className="PriceContainer">
-        <h3>Prices</h3>
+        <h6>Prices</h6>
         <div className="PriceLabel">
           <input
             type="text"

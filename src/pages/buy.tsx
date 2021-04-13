@@ -3,7 +3,7 @@ import Filters from '../components/filters/Filters'
 import listingProps from '../components/listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../interfaces'
-import ImageGallery from 'react-image-gallery';
+
 
 const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
@@ -48,6 +48,7 @@ const Buy = () => {
   let filteredData = state.data.filter(data => {
     // SORT BY CITY
     if (state.city !== "") {
+      console.log('works');
       return data.city === state.city;
     }
     // SORT BY HOMETYPE
@@ -69,29 +70,11 @@ const Buy = () => {
   });
 
 
-  //od tego momentu nie wiem jak polączyć ze sobą te filtrowania
-
-  //czy tu jeszcze trzeba zrobić tak: ????
-  const listingsItem = filteredData.map((item, id) => {
-    return (
-      <ListingItem
-        key={id}
-        city={item.city}
-        bedrooms={item.bedrooms}
-        price={item.price}
-        floorspace={item.livingSpace}
-        hometype={item.estateType}
-      />
-    );
-  });
-
-
-
   let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   
   
   return (
-    <>
+    <div style={{display:'grid', gridTemplateColumns: '40rem 1fr'}}>
      <Filters inputChange={inputChange} stateProp={state} />
       {loading && (
         <div id="page-loading" className="fa-5x">
@@ -106,23 +89,17 @@ const Buy = () => {
         <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
           <h5>Real Estate & Homes For Sale</h5>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Listing  
-                inputChange={inputChange}
-                filteredData={filteredData}>
-            </Listing>
-
-            
-
-          
-            {/* {data.map((listing: IListing, index) => (
-              <Listing key={index} {...myProps = { id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
-            ))} */}
+         
+            {data.map((listing: IListing, index) => (
+              <Listing
+               key={index} {...myProps = { id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.price}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
+            ))}
 
 
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

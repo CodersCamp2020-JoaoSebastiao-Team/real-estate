@@ -7,7 +7,7 @@ import './index.scss';
 
 const Filter:React.FC<{stateProp:any, inputChange:any}> = ({ inputChange, stateProp }) => {
   return (
-    <div>
+    <div className='filterSection'>
       <Location
         inputProp={inputChange}
         city={stateProp.city}

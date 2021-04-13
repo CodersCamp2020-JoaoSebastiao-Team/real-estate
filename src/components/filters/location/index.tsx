@@ -3,15 +3,17 @@ import './index.scss';
 
 
 const Location:React.FC<{city: any ,inputProp:any, bedroom:any, hometype: any}> = ({ city, inputProp, bedroom, hometype }) => {
-  return (
+  
+  
+    return (
     <React.Fragment>
       <div className='filterContainer'>
-        <h3>Location</h3>
+        <h6>Location</h6>
         <label>City</label>
         <select className='select' name="city" onChange={inputProp} value={city}>
           <option value="All">All</option>
-          <option value="Miami">Miami</option>
-          <option value="Philadelphia">Philadelphia</option>
+          <option value="Cracow">Cracow</option>
+          <option value="Katowice">Katowice</option>
           <option value="New York">New York</option>
         </select>
         <label>Hometype</label>
