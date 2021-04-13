@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
 import {userTypes} from '../../enums'
+import { useHistory } from 'react-router-dom';
 const RegisterPanel = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,7 +12,7 @@ const RegisterPanel = () => {
     const [surname, setSurname] = useState("");
     const [type, setType] = useState("");
     const [username, setUsername] = useState("");
-
+    const history = useHistory();
     function validateForm() {
         return email.length > 0 && password.length > 0;
     }
@@ -52,6 +53,7 @@ const RegisterPanel = () => {
         .then(data => {
             if (data.savedUser._id.length > 0){
                 console.log('Success:', data.savedUser._id );
+                history.push('/');
             }
             else{
                 console.log("Error!")
