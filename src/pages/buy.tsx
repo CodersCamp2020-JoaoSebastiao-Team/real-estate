@@ -1,4 +1,5 @@
 import Listing from '../components/listing'
+import Filters from '../components/filters/Filters'
 import listingProps from '../components/listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../interfaces'
@@ -8,6 +9,16 @@ const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
   const [data, setdata] = useState<IListing[]>([]);
   let [loading, setLoading] = useState(true);
+  const [state, setFilterState] = useState({
+    data,
+    city: "",
+    hometype: "",
+    bedroom: "",
+    minPrice: 0,
+    maxPrice: 9999999,
+    minFloorSpace: 0,
+    maxFloorSpace: 999999,
+  });
 
   useEffect(() => {
     if (data.length === 0) {
@@ -25,9 +36,63 @@ const Buy = () => {
     }
   }, []);
 
+  const inputChange = (event: any): void => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+
+    setFilterState({ ...state, [name]: value });
+  };
+
+
+  let filteredData = state.data.filter(data => {
+    // SORT BY CITY
+    if (state.city !== "") {
+      return data.city === state.city;
+    }
+    // SORT BY HOMETYPE
+    if (state.hometype !== "") {
+      return data.hometype === state.hometype ? data.hometype === state.hometype : "no results found";
+    }
+    // SORT BY BEDROOMS
+    if (state.bedroom !== "") {
+      return data.rooms >= state.bedroom;
+    }
+
+    return (
+      data.price >= state.minPrice &&
+      data.price <= state.maxPrice &&
+      data.floorspace >= state.minFloorSpace &&
+      data.floorspace <= state.maxFloorSpace
+    );
+  });
+
+
+  //czy tu jeszcze trzeba zrobić tak: ????
+  const listingsItem = filteredData.map((item, id) => {
+    return (
+      <ListingItem
+        key={id}
+        address={item.address}
+        image={item.image}
+        city={item.city}
+        state={item.state}
+        rooms={item.rooms}
+        price={item.price}
+        floorspace={item.floorspace}
+        hometype={item.home}
+      />
+    );
+  });
+
+
+
   let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+  
+  
   return (
     <>
+     <Filters inputChange={inputChange} stateProp={state} />
       {loading && (
         <div id="page-loading" className="fa-5x">
 
@@ -41,9 +106,19 @@ const Buy = () => {
         <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
           <h5>Real Estate & Homes For Sale</h5>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            {data.map((listing: IListing, index) => (
+            <Listing  
+                inputChange={inputChange}
+                filteredData={filteredData}>
+            </Listing>
+
+            
+
+          
+            {/* {data.map((listing: IListing, index) => (
               <Listing key={index} {...myProps = { id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
-            ))}
+            ))} */}
+
+
           </div>
         </div>
       )}
