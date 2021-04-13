@@ -22,7 +22,7 @@ const ListingForm = () => {
         listingStatusType: 'forRent'
     });
     function validateForm() {
-        return listing.description.length > 0 && listing.city.length > 0;
+        return listing.description.length > 0 && listing.city.length > 0 && listing.zipCode.match(/^\d{2}-\d{3}$/);
     }
 
     const changeInput = (event: React.SyntheticEvent)=>{
@@ -187,7 +187,7 @@ const ListingForm = () => {
                     listing.images.map((url: string, index, images)=>{
 
                         return (
-                        <div className='image-div'>
+                        <div className='image-div' key={url}>
                             <div className='hidden-div'>
                                 <button className="hidden-delete-button" onClick={()=>removeImage(index)}>X</button>
                             </div>
