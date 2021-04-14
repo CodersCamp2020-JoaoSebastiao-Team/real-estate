@@ -31,7 +31,7 @@ const ListingDetails = (props: listingProps) => {
           <p className="listing-text"><span>Description: </span><span>{props.text}</span></p>
         </div>
         <div>
-          <div className="calendar" style={{display: props.type === "forSale" ? 'none' : props.type === "forRent" ? 'block' : 'none'}}><Calendar/></div>
+          <div style={{display: props.type === "forSale" ? 'none' : props.type === "forRent" ? 'block' : 'none'}}><Calendar/></div>
           <div className="btn">{props.type === "forSale" ? "Buy" : props.type === "forRent" ? "Reserve" : "Reserved"}</div>
           <Link to="/contact"><button className="btn">Contact with agent</button></Link>
         </div>
