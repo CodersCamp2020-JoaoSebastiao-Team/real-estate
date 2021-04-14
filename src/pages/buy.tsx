@@ -48,7 +48,6 @@ const Buy = () => {
   let filteredData = state.data.filter(data => {
     // SORT BY CITY
     if (state.city !== "") {
-      console.log('works');
       return data.city === state.city;
     }
     // SORT BY HOMETYPE
@@ -69,7 +68,9 @@ const Buy = () => {
     );
   });
 
-  let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+
+  
+let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   
   
   return (
@@ -88,7 +89,7 @@ const Buy = () => {
 
        <div style={{display:'grid', gridTemplateColumns: '40rem 1fr'}}>
               <Filters inputChange={inputChange} stateProp={state} />
-              {filteredData}
+              
 
         <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
           <h5>Real Estate & Homes For Sale</h5>
