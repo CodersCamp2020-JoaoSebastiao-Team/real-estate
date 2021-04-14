@@ -45,3 +45,12 @@ export interface IListing2 {
     estateType: EstateTypes;
     edit?: boolean;
 }
+
+export interface IOffice {
+    _id?:String,
+    country:String,
+    city:String,
+    street:String,
+    zipCode: String
+
+}
