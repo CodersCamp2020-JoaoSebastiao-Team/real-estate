@@ -22,10 +22,10 @@
 .hero-search-bar input[type=text] {
     padding: 10px;
     font-size: 17px;
-    border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
+    border:none;
 }
   
   /* Style the submit button */
@@ -36,7 +36,7 @@
     background: var(--beige);
     color: white;
     font-size: 17px;
-    border-left: none; /* Prevent double borders */
+    border: none;
     cursor: pointer;
   }
   

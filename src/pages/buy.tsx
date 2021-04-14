@@ -1,14 +1,15 @@
 import Listing from '../components/listing'
-import Filters from '../components/filters/Filters'
 import listingProps from '../components/listing/listingProps'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { IListing } from '../interfaces'
-
+import ImageGallery from 'react-image-gallery';
+import BuyPage from './buyPage'; 
+import Pagination from './pagination'; 
 
 const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+
   const [data, setdata] = useState<IListing[]>([]);
-  let [loading, setLoading] = useState(true);
   const [state, setFilterState] = useState({
     data,
     city: "",
@@ -19,6 +20,11 @@ const Buy = () => {
     minFloorSpace: 0,
     maxFloorSpace: 999999,
   });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(3);
+
+  let [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     if (data.length === 0) {
@@ -27,6 +33,7 @@ const Buy = () => {
       })
         .then(response => response.json())
         .then(data => {
+          console.log('Success:', data.DATA);
           setdata(data.DATA);
           setLoading(false);
         })
@@ -36,24 +43,49 @@ const Buy = () => {
     }
   }, []);
 
-  const inputChange = (event: any): void => {
+  const indexOfLastPost = currentPage*postPerPage;
+  const indexOfFisrtPost = indexOfLastPost - postPerPage;
+  const currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
+  const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
+
+
+    // const inputChange = (event: any): void => {
+  //   const target = event.target;
+  //   const name = target.name;
+  //   const value = target.type === "checkbox" ? target.checked : target.value;
+
+  //   setFilterState({ ...state, [name]: value });
+  // };
+
+  const inputChange = (event:ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
-
     setFilterState({ ...state, [name]: value });
-  };
+    console.log(state.city);
+
+
+    let result = [];
+    console.log(value);
+    
+    result = data.filter((data) => {
+    return data.city === state.city
+    });
+
+    console.log(data);
+    setdata(result);
+    }
 
 
   let filteredData = state.data.filter(data => {
     // SORT BY CITY
     if (state.city !== "") {
-      console.log('works');
       return data.city === state.city;
     }
     // SORT BY HOMETYPE
     if (state.hometype !== "") {
-      return data.estateType === state.hometype ? data.estateType === state.hometype : "no results found";
+      return data.estateType === state.hometype;
     }
     // SORT BY BEDROOMS
     if (state.bedroom !== "") {
@@ -70,12 +102,12 @@ const Buy = () => {
   });
 
 
-  let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   
+let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
   
+
   return (
-    <div style={{display:'grid', gridTemplateColumns: '40rem 1fr'}}>
-     <Filters inputChange={inputChange} stateProp={state} />
+    <>
       {loading && (
         <div id="page-loading" className="fa-5x">
 
@@ -85,22 +117,18 @@ const Buy = () => {
           />
         </div>
       )}
+
       {!loading && (
-        <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
-          <h5>Real Estate & Homes For Sale</h5>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-         
-            {data.map((listing: IListing, index) => (
-              <Listing
-               key={index} {...myProps = { id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.price}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
-            ))}
-
-
-          </div>
-        </div>
-      )}
+    <div className='container'>
+        <BuyPage data={currentdata} loading={loading} inputChange={inputChange} state={state}></BuyPage>
+        <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
     </div>
-  );
-};
+  )}
+  </>
+  )
+}
+
+
 
 export default Buy;
+
