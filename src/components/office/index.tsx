@@ -15,7 +15,7 @@ const OfficeCard:React.FC<{country: String, city: String ,street:String}> = ({co
 			<h5>{street}</h5>
 			<h6>Opening hours</h6>
 			<h5>Every day from 9am to 5pm</h5>
-			<a href='/contact' className="btn">Contact</a>
+			<a href='/contact' className=" btn btn-office">Contact</a>
 		</div>
 	</div>
 </div>
