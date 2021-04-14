@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import AccountContentSettings from './settings';
 import AccountContentListings from './listings';
 import AccountContentReservations from './reservations';
+import React from "react";
 
 const AccountPanel = () => {
   let userLocation = useLocation();

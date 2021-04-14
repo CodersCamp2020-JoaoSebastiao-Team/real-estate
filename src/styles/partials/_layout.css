@@ -89,3 +89,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.grid-buy-page__wrapper{
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+}
+@media (max-width: 750px) {
+  .grid-buy-page__wrapper{
+    grid-template-columns: none;
+  }
+
+}

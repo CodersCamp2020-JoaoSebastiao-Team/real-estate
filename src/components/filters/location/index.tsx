@@ -1,8 +1,32 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { IListing } from '../../../interfaces'
+import Listing from "../../listing";
+
 import './index.scss';
 
 
 const Location:React.FC<{city: any ,inputProp:any, bedroom:any, hometype: any}> = ({ city, inputProp, bedroom, hometype }) => {
+  
+  const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+  const [data, setdata] = useState<IListing[]>([]);
+  
+  useEffect(() => {
+    if (data.length === 0) {
+      fetch(url, {
+        method: 'GET',
+      })
+        .then(response => response.json())
+        .then(data => {
+          setdata(data.DATA);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  }, []);
+
+
+  const cityOptions = Array.from(new Set(data.map(( { city } ) => city)));
   
   
     return (
@@ -11,10 +35,10 @@ const Location:React.FC<{city: any ,inputProp:any, bedroom:any, hometype: any}> 
         <h6>Location</h6>
         <label>City</label>
         <select className='select' name="city" onChange={inputProp} value={city}>
-          <option value="All">All</option>
-          <option value="Cracow">Cracow</option>
-          <option value="Katowice">Katowice</option>
-          <option value="New York">New York</option>
+        <option value="All">All</option>
+          {cityOptions.map ((city) => (
+            <option value={city}>{city}</option>
+          ))}
         </select>
         <label>Hometype</label>
         <select className='select' name="hometype" onChange={inputProp} value={hometype}>
