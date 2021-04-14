@@ -43,7 +43,7 @@ const Offices = () => {
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
   function  filterByCity(array:IOffice []) {
-    if(city==""){
+    if(city===""){
       currentdata = data.slice(indexOfFisrtPost,indexOfLastPost);
       newData = [...data];
     }
@@ -57,9 +57,9 @@ const Offices = () => {
 
   console.log(data)   
   return(
-    <div>
-      <h1 style={{display:'flex',justifyContent:'center', fontSize:'x-large',fontWeight:'bold', fontFamily:'revert'}}>Filter by city.</h1>
-      <Form.Control style={{ borderRadius: '25px'}}
+    <div style={{width:'70%'}}>
+      <h1 style={{display:'flex',justifyContent:'center', fontSize:'x-large',fontWeight:'bold', fontFamily:'revert'}}>Filter by city:</h1>
+      <Form.Control style={{ borderRadius: '25px', height: 'auto', fontSize: '2rem', margin: '1rem'}}
                         type="text"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
