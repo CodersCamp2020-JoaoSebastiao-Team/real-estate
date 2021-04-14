@@ -106,7 +106,7 @@ let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "1
 
       {!loading && (
 
-       <div style={{display:'grid', gridTemplateColumns: '40rem 1fr'}}>
+       <div className="grid-buy-page__wrapper">
           <Filters inputChange={inputChange} stateProp={state} />
               
 
