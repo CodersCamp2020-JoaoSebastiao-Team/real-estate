@@ -1,6 +1,6 @@
 import Listing from '../components/listing'
 import listingProps from '../components/listing/listingProps'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { IListing } from '../interfaces'
 import ImageGallery from 'react-image-gallery';
 import BuyPage from './buyPage'; 
@@ -10,7 +10,16 @@ const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
 
   const [data, setdata] = useState<IListing[]>([]);
-
+  const [state, setFilterState] = useState({
+    data,
+    city: "",
+    hometype: "",
+    bedroom: "",
+    minPrice: 0,
+    maxPrice: 9999999,
+    minFloorSpace: 0,
+    maxFloorSpace: 999999,
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(3);
 
@@ -37,12 +46,69 @@ const Buy = () => {
   const indexOfLastPost = currentPage*postPerPage;
   const indexOfFisrtPost = indexOfLastPost - postPerPage;
   const currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
-
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
+
+
+    // const inputChange = (event: any): void => {
+  //   const target = event.target;
+  //   const name = target.name;
+  //   const value = target.type === "checkbox" ? target.checked : target.value;
+
+  //   setFilterState({ ...state, [name]: value });
+  // };
+
+  const inputChange = (event:ChangeEvent<HTMLInputElement>) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    setFilterState({ ...state, [name]: value });
+    console.log(state.city);
+
+
+    let result = [];
+    console.log(value);
+    
+    result = data.filter((data) => {
+    return data.city === state.city
+    });
+
+    console.log(data);
+    setdata(result);
+    }
+
+
+  let filteredData = state.data.filter(data => {
+    // SORT BY CITY
+    if (state.city !== "") {
+      return data.city === state.city;
+    }
+    // SORT BY HOMETYPE
+    if (state.hometype !== "") {
+      return data.estateType === state.hometype;
+    }
+    // SORT BY BEDROOMS
+    if (state.bedroom !== "") {
+      return data.bedrooms >= state.bedroom;
+    }
+
+    //SHOW LISTINGS IN RANGES FROM ...  TO ...
+    return (
+      data.price >= state.minPrice &&
+      data.price <= state.maxPrice &&
+      data.livingSpace >= state.minFloorSpace &&
+      data.livingSpace <= state.maxFloorSpace
+    );
+  });
+
+
+  
+let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+  
 
   return (
     <div className='container'>
-        <BuyPage data={currentdata} loading={loading}></BuyPage>
+        <BuyPage data={currentdata} loading={loading} inputChange={inputChange} state={state}></BuyPage>
         <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
     </div>
       
