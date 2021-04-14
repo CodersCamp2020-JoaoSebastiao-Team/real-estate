@@ -1,16 +1,19 @@
 import './index.scss'
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../userProvider'
 
 const AccountContentSettings = () => {
+    const { user } = useContext(UserContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
-    const [type, setType] = useState("");
+    const [type, setType] = useState(`${user.type}`);
     const [username, setUsername] = useState("");
+
 
     function validateForm() {
         return email.length > 0 && password.length > 0;

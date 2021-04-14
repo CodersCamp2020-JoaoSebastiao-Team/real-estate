@@ -107,11 +107,24 @@ let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "1
   
 
   return (
+    <>
+      {loading && (
+        <div id="page-loading" className="fa-5x">
+
+          <i
+            className="fa fa-refresh fa-spin"
+            style={{ marginRight: "5px", color: 'var(--dark-beige)' }}
+          />
+        </div>
+      )}
+
+      {!loading && (
     <div className='container'>
         <BuyPage data={currentdata} loading={loading} inputChange={inputChange} state={state}></BuyPage>
         <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
     </div>
-      
+  )}
+  </>
   )
 }
 
