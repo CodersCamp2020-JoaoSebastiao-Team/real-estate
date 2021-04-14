@@ -33,9 +33,11 @@ class Calendar extends Component {
                 focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                 />
-                <button onClick={this.startedDate}>COST</button>
+                {/* <button onClick={this.startedDate}>COST</button> */}
+                <p>Łącznie: {//@ts-ignore
+                (Math.abs(this.state.startDate - this.state.endDate))/(1000*3600*24)+1} dni</p>
             </div>
-        
+
         )
 
     }

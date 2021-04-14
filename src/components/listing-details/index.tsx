@@ -4,6 +4,7 @@ import listingProps from '../listing-details/listingProps'
 import ImageGallery from 'react-image-gallery';
 import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 import { Link } from 'react-router-dom';
+import Calendar from '../calendar'
 
 const ListingDetails = (props: listingProps) => {
   const images = [];
@@ -30,6 +31,7 @@ const ListingDetails = (props: listingProps) => {
           <p className="listing-text"><span>Description: </span><span>{props.text}</span></p>
         </div>
         <div>
+          <div className="calendar" style={{display: props.type === "forSale" ? 'none' : props.type === "forRent" ? 'block' : 'none'}}><Calendar/></div>
           <div className="btn">{props.type === "forSale" ? "Buy" : props.type === "forRent" ? "Reserve" : "Reserved"}</div>
           <Link to="/contact"><button className="btn">Contact with agent</button></Link>
         </div>

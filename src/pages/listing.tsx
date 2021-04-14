@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import listingProps from '../components/listing-details/listingProps'
 import { IListing } from '../interfaces';
 import ListingDetails from '../components/listing-details';
-import Slider from '../components/slider'
+import Slider from '../components/slider';
+import Calendar from '../components/calendar';
 
 
 const Listing = () => {

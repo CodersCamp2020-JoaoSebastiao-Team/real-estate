@@ -11,7 +11,6 @@ const Sell = () => {
       <h2>Sell page</h2>
         <ListingForm />
     </div>
-      <Calendar/>
   </div>
   );
 };
