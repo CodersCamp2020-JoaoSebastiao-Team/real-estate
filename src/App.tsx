@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
         <Nav></Nav>
-        <div className="main" style={{backgroundImage: `url(${background})`}}>
+        <div className="main">
           <Switch>
             <Route exact path="/">
               <Home />

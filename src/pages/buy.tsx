@@ -3,11 +3,19 @@ import listingProps from '../components/listing/listingProps'
 import React, { useState, useEffect, useRef } from 'react';
 import { IListing } from '../interfaces'
 import ImageGallery from 'react-image-gallery';
+import BuyPage from './buyPage'; 
+import Pagination from './pagination'; 
 
 const Buy = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+
   const [data, setdata] = useState<IListing[]>([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(3);
+
   let [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     if (data.length === 0) {
@@ -16,6 +24,7 @@ const Buy = () => {
       })
         .then(response => response.json())
         .then(data => {
+          console.log('Success:', data.DATA);
           setdata(data.DATA);
           setLoading(false);
         })
@@ -25,7 +34,12 @@ const Buy = () => {
     }
   }, []);
 
-  let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+  const indexOfLastPost = currentPage*postPerPage;
+  const indexOfFisrtPost = indexOfLastPost - postPerPage;
+  const currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
+
+  const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
   return (
     <>
       {loading && (
@@ -37,18 +51,18 @@ const Buy = () => {
           />
         </div>
       )}
+
       {!loading && (
-        <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
-          <h5>Real Estate & Homes For Sale</h5>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            {data.map((listing: IListing, index) => (
-              <Listing key={index} {...myProps = { id: `${listing._id}`, width: "300px", height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.description}`, address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
-            ))}
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+    <div className='container'>
+        <BuyPage data={currentdata} loading={loading}></BuyPage>
+        <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
+    </div>
+  )}
+  </>
+  )
+}
+
+
 
 export default Buy;
+

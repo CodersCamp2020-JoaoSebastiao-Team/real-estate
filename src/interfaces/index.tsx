@@ -15,9 +15,12 @@ export interface ModificationNote {
 
 export interface IListing {
     _id?: String;
+    price : Number;
+    livingSpace : Number;
+    bedrooms : String;
     description: String;
-    country: String;
-    city: String;
+    country: string;
+    city: string;
     street: String;
     zipCode: String;
     images: string[];
@@ -26,4 +29,28 @@ export interface IListing {
     estateType: EstateTypes;
     author: IUser;
     modification_notes: ModificationNote[]
+}
+
+export interface IListing2 {
+    price : number;
+    livingSpace : number;
+    bedrooms : string;
+    description: string;
+    country: string;
+    city: string;
+    street: string;
+    zipCode: string;
+    images: string[];
+    listingStatusType: ListingStatusTypes;
+    estateType: EstateTypes;
+    edit?: boolean;
+}
+
+export interface IOffice {
+    _id?:String,
+    country:String,
+    city:String,
+    street:String,
+    zipCode: String
+
 }

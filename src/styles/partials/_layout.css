@@ -21,7 +21,7 @@
   .main{
     min-height: 80vh;
     /* background-image: url('../../asstets/images/background.png'); */
-    background-color: var(--background);
+    background-color: var(--light-white);
   }
   .centered {
     text-align: center;
@@ -88,4 +88,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.grid-buy-page__wrapper{
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+}
+@media (max-width: 750px) {
+  .grid-buy-page__wrapper{
+    grid-template-columns: none;
+  }
+
 }

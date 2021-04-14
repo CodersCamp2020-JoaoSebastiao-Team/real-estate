@@ -1,0 +1,17 @@
+.FloorContainer 
+  {width: 25rem;
+  margin: 0 auto;}
+  
+
+
+.FloorLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  input {
+    width: 47%;
+    padding: 0.7rem;
+    font-size: 1.6rem;
+    border: 1px solid lightgrey;
+  }
+}

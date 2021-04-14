@@ -1,0 +1,17 @@
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+.select {
+  border: 1px solid lightgrey;
+  padding: 0.7rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  appearance: none;
+  cursor: pointer;
+}
