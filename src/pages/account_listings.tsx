@@ -1,4 +1,5 @@
 import AccountPanel from '../components/account'
+import React from "react";
 
 const AccountListings = () => {
     return(

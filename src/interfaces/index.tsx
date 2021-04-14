@@ -30,3 +30,18 @@ export interface IListing {
     author: IUser;
     modification_notes: ModificationNote[]
 }
+
+export interface IListing2 {
+    price : number;
+    livingSpace : number;
+    bedrooms : string;
+    description: string;
+    country: string;
+    city: string;
+    street: string;
+    zipCode: string;
+    images: string[];
+    listingStatusType: ListingStatusTypes;
+    estateType: EstateTypes;
+    edit?: boolean;
+}

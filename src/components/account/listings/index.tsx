@@ -2,20 +2,31 @@ import './index.scss'
 import { Link } from 'react-router-dom';
 import Listing from '../../listing'
 import listingProps from '../../listing/listingProps'
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import { IListing } from '../../../interfaces'
 import ImageGallery from 'react-image-gallery';
-
+import {UserContext} from '../../../userProvider'
 const AccountContentListings = () => {
+
   const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
   const [data, setdata] = useState<IListing[]>([])
-
+  const {user} = useContext(UserContext);
   useEffect(() => {
     if (data.length === 0) {
       fetch(url, {
         method: 'GET',
+        headers:{
+          jwt:user.jwt,
+          jwt2:user.jwt2,
+        }
       })
-        .then(response => response.json())
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error('Something went wrong');
+            }
+          })
         .then(data => {
           console.log('Success:', data.DATA);
           setdata(data.DATA);

@@ -42,7 +42,13 @@ const AccountContentSettings = () => {
                 password: event.target[5].defaultValue
                 })
         })
-        .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
         .then(data => {
             if (data.savedUser._id.length > 0){
                 console.log('Success:', data.savedUser._id );
