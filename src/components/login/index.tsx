@@ -34,10 +34,10 @@ const LoginPanel = () => {
             })
             .then(data => {
                 if (data) {
-                    if (data.jwt2){
-                        login(data.jwt, data.jwt2, userTypes.owner);
+                    if (data.jwt2){//data.user_id
+                        login(data.jwt, data.jwt2, userTypes.owner, "60735d1c6234af0015e5dea6");
                     }else
-                        login(data.jwt, '', userTypes.custom);
+                        login(data.jwt, '', userTypes.custom, "");
 
                     user.auth = true;
                     console.log('Success:', data);

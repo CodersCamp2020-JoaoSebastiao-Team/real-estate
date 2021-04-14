@@ -43,5 +43,5 @@ export interface IListing2 {
     images: string[];
     listingStatusType: ListingStatusTypes;
     estateType: EstateTypes;
-    edit?: boolean;
+
 }

@@ -26,6 +26,7 @@ import background from './asstets/images/background.png';
 import {OwnerAuthRoute} from './OwnerAuthRoute'
 import {AuthRoute} from './AuthRoute'
 import {useContext} from "react";
+import ListingForm from "./components/listingForm";
 
 function App() {
 
@@ -76,6 +77,9 @@ function App() {
             <Route path="/listing">
               <Listing />
             </Route>
+            <OwnerAuthRoute path="/edit/:id">
+              <ListingForm/>
+            </OwnerAuthRoute>
             <AuthRoute path="/account/settings">
               <AccountSettings />
             </AuthRoute>
