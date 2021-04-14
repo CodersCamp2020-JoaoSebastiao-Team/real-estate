@@ -19,8 +19,8 @@ export interface IListing {
     livingSpace : Number;
     bedrooms : String;
     description: String;
-    country: String;
-    city: String;
+    country: string;
+    city: string;
     street: String;
     zipCode: String;
     images: string[];
