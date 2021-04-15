@@ -43,21 +43,12 @@ const Buy = () => {
     }
   }, []);
 
-  let newData: IListing [] = [];
 
   const indexOfLastPost = currentPage*postPerPage;
   const indexOfFisrtPost = indexOfLastPost - postPerPage;
  let currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
-
-
-  function filteredBy(array:IListing []) {
-    if(state.city!==""){
-      currentdata =  array.filter((filteredListing:IListing)=>{return filteredListing.city.toLocaleLowerCase().includes(state.city.toLocaleLowerCase())})
-    }
-    return currentdata = data;
     
-  }
 
   const inputChange = (event:ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -105,7 +96,6 @@ const Buy = () => {
 
       {!loading && (
     <div className='container'>
-        {filteredBy(data)}
         <BuyPage data={currentdata} loading={loading} inputChange={inputChange} state={state}></BuyPage>
         <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
     </div>
