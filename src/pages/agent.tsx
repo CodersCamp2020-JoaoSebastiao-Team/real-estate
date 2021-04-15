@@ -6,42 +6,43 @@ import Form from "react-bootstrap/Form";
 import AgentPage from './agentPage';
 import { FaInfoCircle } from 'react-icons/fa';
 
-const Offices = () => {
+const Agents = () => {
   
   const url = `https://coderscamp-real-estate.herokuapp.com/api/agents`;
+  // const url =  `http://localhost:8082/api/agents`;
 
-  const [data, setdata] = useState<IUser[]>([]);
+  const [data, setdata] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(3);
  
   let [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (data.length === 0) {
-  //     fetch(url, {
-  //       method: 'GET',
-  //     })
-  //       .then(response => response.json())
-  //       .then(data => {
-  //         // console.log('Success:', data.DATA);
-  //         setdata(data.DATA);
-  //         setLoading(false);
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error:', error);
-  //       });
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (data.length === 0) {
+      fetch(url, {
+        method: 'GET',
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          setdata(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  }, []);
 
 
 
   const indexOfLastPost = currentPage*postPerPage;
   const indexOfFisrtPost = indexOfLastPost - postPerPage;
-  const currentdata: IUser [] = data.slice(indexOfFisrtPost,indexOfLastPost);
+  const currentdata: any [] = data.slice(indexOfFisrtPost,indexOfLastPost);
 
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
-
+  // console.log(data)
   return(
     <div>
       <AgentPage data={currentdata} loading={loading}></AgentPage>
@@ -49,4 +50,4 @@ const Offices = () => {
     </div>
   );
 };
-export default Offices;
+export default Agents;
