@@ -1,5 +1,6 @@
 import React from 'react';
 import { IUser} from '../interfaces'
+import AgentCard from "../components/agent"
 
 const AgentPage = ({data,loading}:any|IUser|boolean) =>{
     return (
@@ -17,16 +18,10 @@ const AgentPage = ({data,loading}:any|IUser|boolean) =>{
                 <div >
                      <h2 style={{display:'flex',justifyContent:'center'}}>Agents : </h2>
                      {data.map((agent:any,index:any) =>{
-                         return(
-                            <div>
-                                <ul key={index} style={{ backgroundColor:'white',border:' 1px solid grey', borderRadius: '25px', margin:'1%'}}>
-                                    <h6  style={{fontSize:'x-large', display:'flex'}}>
-                                        {agent.name} {agent.surname} {agent.modification_notes}
-                                    </h6>
-                                </ul>      
-                           </div>
-                         )
-                             
+                        return (
+                          <AgentCard name={agent.name} surname={agent.surname} email={agent.email}></AgentCard>
+                        )
+           
                 })}
             </div>
             </div>
