@@ -28,6 +28,12 @@ html {
     text-decoration: none;
     color: var(--dark-beige);
   }
+
+  a:hover {
+    text-decoration: none;
+    color: var(--dark-beige);
+    background-color: var(--light-beige);
+  }
   
   p a {
     font-family: 'Proza Libre', sans-serif;

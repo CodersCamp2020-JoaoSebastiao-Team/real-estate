@@ -2,26 +2,33 @@
     position: relative;
     transition: transform 0.3s;
     display: inline-block;
-    background-color: var( --light-white);
+    background-color: white;
     margin: 10px;
     border-radius: 5px;
     padding: 5px;
     box-sizing: border-box;
-    .listing-picture{
-        cursor: pointer;
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
+    .picture-wrapper{
+        width: 100% !important;
+        height: 100% !important;
+        .listing-picture{
+            cursor: pointer;
+            width: 100% !important;
+            height: 100% !important;
+            box-sizing: border-box;
+        }
     }
     .listing-description{
         box-sizing: content-box;
         width: calc(100% - 5px);
+        padding-left: 5px;
+        padding-bottom: 5px;
         p{
             font-weight: 600;
             margin-top: 0;
             margin-bottom: 4px;
             font-size: 16px;
             line-height: 18px;
+            color: #fff;
         }
         p:hover{
             color: var(--light-beige);

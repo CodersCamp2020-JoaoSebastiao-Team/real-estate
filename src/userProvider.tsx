@@ -6,11 +6,13 @@ type userType = {
     jwt: string,
     jwt2: string,
     auth: boolean,
-    type: userTypes
+    type: userTypes,
+    owner_id: string,
+    user_id: string
 }
 type userContextType = {
     user: userType,
-    login: (jwt:string, jwt2:string, type: userTypes) => void,
+    login: (jwt:string, jwt2:string, type: userTypes, owner_id: string, user_id: string) => void,
     logout: () => void,
 
 }
@@ -20,7 +22,9 @@ const contextDefaultValues: userContextType = {
         jwt: "",
         jwt2: "",
         auth: false,
-        type: userTypes.unlogged
+        type: userTypes.unlogged,
+        owner_id: "",
+        user_id: ""
     },
     login: () => {},
     logout: () => {}
@@ -32,13 +36,15 @@ export const UserContext = createContext<userContextType>(contextDefaultValues);
 
 export const UserProvider = ({ children }:any) => {
 
-    const [user, setUser] = useState<userType>({ jwt: "", jwt2: "", auth: false, type: userTypes.unlogged});
+    const [user, setUser] = useState<userType>({ jwt: "", jwt2: "", auth: false, type: userTypes.unlogged, owner_id:"", user_id:""});
 
 
     useEffect(()=>{
 
         const jwt = Cookies.get("jwt");
         const jwt2 = Cookies.get("jwt2");
+        const id = Cookies.get("owner_id")||"";
+        const user_id = Cookies.get("user_id")||"";
         if (jwt){
             if (jwt2){
                 setUser({
@@ -46,6 +52,8 @@ export const UserProvider = ({ children }:any) => {
                     jwt: jwt,
                     type: userTypes.owner,
                     auth: true,
+                    owner_id: id,
+                    user_id: user_id,
                 });
             }else{
                 setUser({
@@ -53,6 +61,8 @@ export const UserProvider = ({ children }:any) => {
                     jwt: jwt,
                     type: userTypes.custom,
                     auth: true,
+                    owner_id: "",
+                    user_id: user_id
                 });
             }
 
@@ -60,25 +70,33 @@ export const UserProvider = ({ children }:any) => {
         }
     },[]);
 
-    const login = (jwt:string, jwt2:string, type: userTypes) => {
+    const login = (jwt:string, jwt2:string, type: userTypes, owner_id:string, user_id:string) => {
         Cookies.set('jwt',jwt);
         Cookies.set('jwt2',jwt2);
+        Cookies.set("owner_id", owner_id);
+        Cookies.set("user_id", user_id);
         setUser({
             jwt: jwt,
             jwt2: jwt2,
             auth: true,
-            type: type
+            type: type,
+            owner_id: owner_id,
+            user_id: user_id,
         });
     };
 
     const logout = () => {
         Cookies.remove('jwt');
         Cookies.remove('jwt2');
+        Cookies.remove('owner_id');
+        Cookies.remove('user_id');
         setUser({
             jwt: "",
             jwt2: "",
             auth: false,
-            type: userTypes.unlogged
+            type: userTypes.unlogged,
+            owner_id: "",
+            user_id: ""
         });
     };
 

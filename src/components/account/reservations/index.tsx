@@ -13,7 +13,6 @@ const AccountContentReservations = () => {
   const [data, setdata] = useState<IListing[]>([])
   const { user } = useContext(UserContext);
   let [loading, setLoading] = useState(true);
-  console.log("user: ", user);
   useEffect(() => {
     if (data.length === 0) {
       fetch(url, {

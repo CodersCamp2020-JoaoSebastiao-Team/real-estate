@@ -1,10 +1,10 @@
-import { useLocation } from 'react-router-dom'
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { useState, useEffect  } from 'react';
 import { IOffice} from '../interfaces'
 import OfficePage from './officePage'; 
 import Pagination from './pagination'; 
 import Form from "react-bootstrap/Form";
-import { FaInfoCircle } from 'react-icons/fa';
+
 
 const Offices = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/office`;
@@ -42,13 +42,13 @@ const Offices = () => {
 
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
-  function  filterByCity(array:IOffice []) {
-    if(city==""){
+  function filterByCity() {
+    if(city===""){
       currentdata = data.slice(indexOfFisrtPost,indexOfLastPost);
       newData = [...data];
     }
     else{
-      newData =  array.filter((office:IOffice)=>{return office.city.toLocaleLowerCase().includes(city.toLocaleLowerCase())})
+      newData =  data.filter((office:IOffice)=>{return office.city.toLocaleLowerCase().includes(city.toLocaleLowerCase())})
       currentdata = newData.slice(indexOfFisrtPost,indexOfLastPost);
 
     }
@@ -57,14 +57,14 @@ const Offices = () => {
 
   console.log(data)   
   return(
-    <div>
-      <h1 style={{display:'flex',justifyContent:'center', fontSize:'x-large',fontWeight:'bold', fontFamily:'revert'}}>Filter by city.</h1>
-      <Form.Control style={{ borderRadius: '25px'}}
+    <div style={{width:'70%'}}>
+      <h1 style={{display:'flex',justifyContent:'center', fontSize:'x-large',fontWeight:'bold', fontFamily:'revert'}}>Filter by city:</h1>
+      <Form.Control style={{ borderRadius: '25px', height: 'auto', fontSize: '2rem', margin: '1rem'}}
                         type="text"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                     />
-      {filterByCity(data)}
+      {filterByCity()}
     
       <OfficePage data={currentdata} loading={loading}></OfficePage>
       <Pagination postsPerPage={postPerPage} totalPost = {newData.length} paginate={paginate}></Pagination>

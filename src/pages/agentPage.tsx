@@ -1,11 +1,8 @@
 import React from 'react';
-import Listing from '../components/listing'
-import { IListing } from '../interfaces'
-import listingProps from '../components/listing/listingProps'
+import { IUser} from '../interfaces'
+import AgentCard from "../components/agent"
 
-
-const BuyPage = ({data ,loading}:any|IListing|boolean) =>{
-    let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
+const AgentPage = ({data,loading}:any|IUser|boolean) =>{
     return (
         <>
         {loading && (
@@ -16,22 +13,23 @@ const BuyPage = ({data ,loading}:any|IListing|boolean) =>{
             />
             </div>
         )}
-          {!loading && (
-            <div id="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 0' }}>
-              <h5>Real Estate & Homes For Sale</h5>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-    
-                {data.map((listing: IListing, index:any) => (
-                    <Listing key={index} {...myProps = { id: `${listing._id}`, width: "300px",
-                     height: "270px", url: `${listing.images[0]}`, margin: "10px", price: `${listing.description}`, 
-                     address: `${listing.country} ${listing.city} ${listing.street}`, size: `${listing.status}`, color: "black" }} />
-                ))}
-              </div>
+        {!loading && (
+            <div >
+                <div >
+                     <h2 style={{display:'flex',justifyContent:'center'}}>Agents : </h2>
+                     {data.map((agent:any,index:any) =>{
+                        return (
+                          <AgentCard name={agent.name} surname={agent.surname} email={agent.email}></AgentCard>
+                        )
+           
+                })}
             </div>
-          )}
-    
+            </div>
+
+           
+        )}
         </>
-      );
+    )
 };
 
-export default BuyPage
+export default AgentPage
