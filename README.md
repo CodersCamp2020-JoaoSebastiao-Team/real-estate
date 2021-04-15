@@ -10,7 +10,7 @@ Zachęcamy do odwiedzenia profili członków zespołu, w celu zapoznania się z 
 **Mentor**: [João Kiakumbo Sebastião](https://github.com/JK-Sebastiao)
 
 **Uczestnicy**:
-- [Bartlomiej Kaminski](https://github.com/BartlomiejKaminski) ()
+- [Bartlomiej Kaminski](https://github.com/BartlomiejKaminski) (Tester)
 - [Hubert Siewior](https://github.com/HubertSiewior) (Test Manager)
 - [Adrian Kotliński](https://github.com/Kotlinski95) (Team Leader)
 - [Magdalena Socha](https://github.com/magdalena-socha) (Product Owner)
