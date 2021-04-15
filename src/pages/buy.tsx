@@ -43,39 +43,19 @@ const Buy = () => {
     }
   }, []);
 
+
   const indexOfLastPost = currentPage*postPerPage;
   const indexOfFisrtPost = indexOfLastPost - postPerPage;
-  const currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
+ let currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
-
-
-
-    // const inputChange = (event: any): void => {
-  //   const target = event.target;
-  //   const name = target.name;
-  //   const value = target.type === "checkbox" ? target.checked : target.value;
-
-  //   setFilterState({ ...state, [name]: value });
-  // };
+    
 
   const inputChange = (event:ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
     setFilterState({ ...state, [name]: value });
-    console.log(state.city);
-
-
-    let result = [];
-    console.log(value);
-    
-    result = data.filter((data) => {
-    return data.city === state.city
-    });
-
-    console.log(data);
-    setdata(result);
-    }
+}
 
 
   let filteredData = state.data.filter(data => {
@@ -101,10 +81,6 @@ const Buy = () => {
     );
   });
 
-
-  
-let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
-  
 
   return (
     <>
