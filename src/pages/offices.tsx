@@ -42,13 +42,13 @@ const Offices = () => {
 
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
-  function filterByCity(array:IOffice []) {
+  function filterByCity() {
     if(city===""){
       currentdata = data.slice(indexOfFisrtPost,indexOfLastPost);
       newData = [...data];
     }
     else{
-      newData =  array.filter((office:IOffice)=>{return office.city.toLocaleLowerCase().includes(city.toLocaleLowerCase())})
+      newData =  data.filter((office:IOffice)=>{return office.city.toLocaleLowerCase().includes(city.toLocaleLowerCase())})
       currentdata = newData.slice(indexOfFisrtPost,indexOfLastPost);
 
     }
@@ -64,7 +64,7 @@ const Offices = () => {
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                     />
-      {filterByCity(data)}
+      {filterByCity()}
     
       <OfficePage data={currentdata} loading={loading}></OfficePage>
       <Pagination postsPerPage={postPerPage} totalPost = {newData.length} paginate={paginate}></Pagination>

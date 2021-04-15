@@ -9,7 +9,7 @@ const AgentCard:React.FC<{name: String, surname: String ,email:String}> = ({name
 			<h6>Agent</h6>
 			<h5>{name}</h5>
             <h5>{surname}</h5>
-			<a href="/contact"> Check more info<HiSearch/></a>
+			<a href="/contact"> Check more info <HiSearch/></a>
 		</div>
 		<div className="course-info">
 			<h6>Email</h6>
