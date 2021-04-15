@@ -43,39 +43,28 @@ const Buy = () => {
     }
   }, []);
 
+  let newData: IListing [] = [];
+
   const indexOfLastPost = currentPage*postPerPage;
   const indexOfFisrtPost = indexOfLastPost - postPerPage;
-  const currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
+ let currentdata = data.slice(indexOfFisrtPost,indexOfLastPost)
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
 
-
-    // const inputChange = (event: any): void => {
-  //   const target = event.target;
-  //   const name = target.name;
-  //   const value = target.type === "checkbox" ? target.checked : target.value;
-
-  //   setFilterState({ ...state, [name]: value });
-  // };
+  function filteredBy(array:IListing []) {
+    if(state.city!==""){
+      currentdata =  array.filter((filteredListing:IListing)=>{return filteredListing.city.toLocaleLowerCase().includes(state.city.toLocaleLowerCase())})
+    }
+    return currentdata = data;
+    
+  }
 
   const inputChange = (event:ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
     setFilterState({ ...state, [name]: value });
-    console.log(state.city);
-
-
-    let result = [];
-    console.log(value);
-    
-    result = data.filter((data) => {
-    return data.city === state.city
-    });
-
-    console.log(data);
-    setdata(result);
-    }
+}
 
 
   let filteredData = state.data.filter(data => {
@@ -102,10 +91,6 @@ const Buy = () => {
   });
 
 
-  
-let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "10px", price: "", address: "", size: "", color: "black" };
-  
-
   return (
     <>
       {loading && (
@@ -120,6 +105,7 @@ let myProps: listingProps = { id: "", width: "", height: "", url: "", margin: "1
 
       {!loading && (
     <div className='container'>
+        {filteredBy(data)}
         <BuyPage data={currentdata} loading={loading} inputChange={inputChange} state={state}></BuyPage>
         <Pagination postsPerPage={postPerPage} totalPost = {data.length} paginate={paginate}></Pagination>
     </div>

@@ -152,7 +152,8 @@ const ListingForm = () => {
                     <Form.Label>Estate Type</Form.Label>
                     <Form.Control type="text" as="select" aria-label="Recipient's username"
                                   aria-describedby="basic-addon2" value={listing.estateType}
-                                  onChange={(e) => changeInput(e)} >
+                                  onChange={(e) => changeInput(e)}
+                                  style = { {fontSize: '2rem', height:'auto'}} >
                         <option value={EstateTypes.flat}>{EstateTypes.flat}</option>
                         <option value={EstateTypes.garage}>{EstateTypes.garage}</option>
                         <option value={EstateTypes.house}>{EstateTypes.house}</option>
@@ -163,7 +164,8 @@ const ListingForm = () => {
                     <Form.Label>Listing Status Type</Form.Label>
                     <Form.Control type="text" as="select" aria-label="Recipient's username"
                                   aria-describedby="basic-addon2" value={listing.listingStatusType}
-                                  onChange={(e) => changeInput(e)} >
+                                  onChange={(e) => changeInput(e)}
+                                  style = { {fontSize: '2rem', height:'auto'}} >
                         <option value={ListingStatusTypes.forRent}>{ListingStatusTypes.forRent}</option>
                         <option value={ListingStatusTypes.forSale}>{ListingStatusTypes.forSale}</option>
 
