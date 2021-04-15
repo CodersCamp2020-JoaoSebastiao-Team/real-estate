@@ -1,10 +1,10 @@
-import { useLocation } from 'react-router-dom'
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { useState, useEffect  } from 'react';
 import { IOffice} from '../interfaces'
 import OfficePage from './officePage'; 
 import Pagination from './pagination'; 
 import Form from "react-bootstrap/Form";
-import { FaInfoCircle } from 'react-icons/fa';
+
 
 const Offices = () => {
   const url = `https://coderscamp-real-estate.herokuapp.com/api/office`;
@@ -42,7 +42,7 @@ const Offices = () => {
 
   const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
 
-  function  filterByCity(array:IOffice []) {
+  function filterByCity(array:IOffice []) {
     if(city===""){
       currentdata = data.slice(indexOfFisrtPost,indexOfLastPost);
       newData = [...data];

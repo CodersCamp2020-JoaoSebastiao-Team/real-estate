@@ -6,6 +6,7 @@
     @media (min-width: 951px) {
         grid-template-columns: repeat(3,300px);
         grid-template-rows: repeat(2,200px);
+        grid-gap: 1rem;
     }
     @media (max-width: 950px) {
         grid-template-columns: repeat(2,300px);
