@@ -25,13 +25,14 @@ const Listing = () => {
                 setdataDetails(data.DATA);
                 setLoading(false);
                 console.log(data.DATA)
-                if (data.DATA.author == user.owner_id){
+                if (data.DATA.author === user.owner_id){
                     setEditable(true);
                 }
                 const interval = setInterval(() => {
+
                     const button = document.getElementsByClassName("btn")[0];
                     console.log("button: ", button.textContent)
-                    if (button.textContent === ("Reserved" || "RESERVED")) {
+                    if (button && (button.textContent === ("Reserved" || "RESERVED"))) {
                         button.classList.add("blocked");
                     }
                     else {
