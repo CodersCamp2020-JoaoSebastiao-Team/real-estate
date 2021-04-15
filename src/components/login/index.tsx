@@ -35,7 +35,7 @@ const LoginPanel = () => {
             .then(data => {
                 if (data) {
                     if (data.jwt2){//data.user_id
-                        login(data.jwt, data.jwt2, userTypes.owner, "60735d1c6234af0015e5dea6");
+                        login(data.jwt, data.jwt2, userTypes.owner, data.user_id);
                     }else
                         login(data.jwt, '', userTypes.custom, "");
 
