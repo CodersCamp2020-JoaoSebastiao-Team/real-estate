@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# CodersCamp 2020 | Projekt Zespołowy | React.js
+Internetowa platforma do handlu nieruchomościami.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Zespół projektowy
 
-## Available Scripts
+Zespół pracował w ramach kursu [CodersCamp](CodersCamp.pl). 
+Aplikację wykonali uczestnicy kursu przy pomocy mentora.
+Zachęcamy do odwiedzenia profili członków zespołu, w celu zapoznania się z ich portfolio.
 
-In the project directory, you can run:
+**Mentor**: [João Kiakumbo Sebastião](https://github.com/JK-Sebastiao)
 
-### `yarn start`
+**Uczestnicy**:
+- [Bartlomiej Kaminski](https://github.com/BartlomiejKaminski) ()
+- [Hubert Siewior](https://github.com/HubertSiewior) (Test Manager)
+- [Adrian Kotliński](https://github.com/Kotlinski95) (Team Leader)
+- [Magdalena Socha](https://github.com/magdalena-socha) (Product Owner)
+- [Tomasz Smolarski](https://github.com/TomaszSmolarski) (Scrum Master)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Real-Estate
+W ramach piątego projektu zadaniem naszego zespołu było opracowanie frontendu do internetowej platformy do handlu nieruchomościami. Jest to platforma, na której użytkownicy mogą wystawiać, sprzedawać, rezerwować oraz przeglądać nieruchomości. Językiem domyślnym platformy będzie język angielski.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Demo
+Wersja demonstracyjna aplikacji jest dostępna [TUTAJ](https://real-estate-coders-camp.herokuapp.com/)
 
-### `yarn test`
+![Ekran startowy](/src/asstets/ui/home.png)
+### Cel projektu
+Celem projektu było przygotowanie internetowej platformy do handlu nieruchomościami. Aplikacja została stworzona w React.js.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Lista funkcjonalności aplikacji
+1. Rejestracja oraz logowanie (weryfikacja uprawnień).
+2. Tworzenie trzech różnych typów kont: dla sprzedających, kupujących oraz pracowników.
+3. Dodawanie, edycja, usuwanie ogłoszeń jako zalogowany sprzedający.
+3. Przeglądanie istniejących ogłoszeń z możliwością filtrowania.
+5. Tworzenie rezerwacji przez użytkownika.
+6. Przeglądanie sieci biur w różnych miastach na całym świecie.
+7. Opłata rezerwacji online oraz informacja zwrotna w postaci maila.
+8. Zakup nieruchomości online razem z rejestracją jak i bez niej, po uprzednim podaniu wszystkich wymaganych danych.
+9. Możliwośc kontaktu
+### Wykorzystywane technologie
+- React.JS
+- TypeScript
+- scss
 
-### `yarn build`
+#### W projekcie każdy z uczestników zaprezentował praktyczną znajomość poniższych zagadnień związanych z TypeScript oraz React.JS:
+- Tworzenie komponentów, formularzy z walidacją
+- Wykorzystanie endpointów z api stworzonego w poprzednim projekcie
+- Tworzenie stylów (scss)
+- Wykorzystanie danych w cookies
+- integracja z zewnętrznym systemem (np. wysyłanie e-maili)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Organizacja pracy
+Praca zespołu była organizowana przy użyciu narzędzi dostarczanych przez GitHub. 
+Zadania opisywaliśmy za pomocą GitHub Issues i dzieliśmy czas ich wykonania na tygodnie za pomocą GitHub Projects.
+Każde z zadań było estymowane przez mentora, dzięki czemu staraliśmy się, aby liczba punktów przypadająca w danym tygodniu na każdą osobę w zespole była podobna.
+Jeśli chcesz zaproponować, jakąś zmianę w aplikacji, utwórz nowy Issue, wzorując się na poprzednich.

@@ -79,7 +79,6 @@ const ListingForm = () => {
         })
     }
     function handleSubmit(event: any) {
-        console.log(listing.images)
         if (user.owner_id&&location.pathname.includes('/edit')){
             fetch(url, {
                 method: 'PUT',
