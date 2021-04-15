@@ -8,7 +8,7 @@ import ImageGallery from 'react-image-gallery';
 import { UserContext } from '../../../userProvider'
 const AccountContentListings = () => {
 
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+  const url = `https://coderscamp-real-estate.herokuapp.com/api/listings`;
   const [data, setdata] = useState<IListing[]>([])
   const { user } = useContext(UserContext);
   let [loading, setLoading] = useState(true);

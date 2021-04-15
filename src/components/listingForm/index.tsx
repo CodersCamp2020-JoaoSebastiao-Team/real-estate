@@ -1,26 +1,72 @@
 import './index.scss'
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import {EstateTypes, ListingStatusTypes} from '../../enums'
 import {UserContext} from "../../userProvider";
 import x from '../../asstets/images/x.jpg';
-import { useHistory } from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
+import {IListing2} from '../../interfaces'
 
 const ListingForm = () => {
-    const {user} = useContext(UserContext)
+    const location = useLocation();
     const history = useHistory();
-    const [listing, setListing] = useState({
+    // @ts-ignore
+    const { id } = useParams();
+    const url = `https://coderscamp-real-estate.herokuapp.com/api/listing/${id}`;
+    const {user} = useContext(UserContext)
+    const [listing, setListing] = useState<IListing2>({
         description: '',
         country: '',
         city: '',
         street: '',
         zipCode: '',
+        price: 0,
+        livingSpace: 0,
+        bedrooms: '',
         images: [],
-        estateType: 'flat',
-        listingStatusType: 'forRent'
+        estateType: EstateTypes.flat,
+        listingStatusType: ListingStatusTypes.forSale
     });
+    useEffect(()=>{
+
+        if (user.owner_id&&location.pathname.includes('/edit')){
+            fetch(url, {
+                method: 'GET',
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong');
+                    }
+                })
+                .then(data => {
+                    setListing({
+                        description: data.DATA.description?data.DATA.description:"",
+                        country: data.DATA.country?data.DATA.country:"",
+                        city: data.DATA.city?data.DATA.city:"",
+                        street: data.DATA.street?data.DATA.street:"",
+                        zipCode: data.DATA.zipCode?data.DATA.zipCode:"00-000",
+                        price: data.DATA.price?data.DATA.price:0,
+                        livingSpace: data.DATA.livingSpace?data.DATA.livingSpace:0,
+                        bedrooms: data.DATA.bedrooms?data.DATA.bedrooms:0,
+                        images: data.DATA.images?data.DATA.images:[],
+                        estateType: data.DATA.estateType?data.DATA.estateType:EstateTypes.flat,
+                        listingStatusType: data.DATA.listingStatusType?data.DATA.listingStatusType:ListingStatusTypes.forSale
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+    },[])
+
+
+
     function validateForm() {
         return listing.description.length > 0 && listing.city.length > 0 && listing.zipCode.match(/^\d{2}-\d{3}$/);
     }
@@ -33,38 +79,65 @@ const ListingForm = () => {
         })
     }
     function handleSubmit(event: any) {
-        const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+        console.log(listing.images)
+        if (user.owner_id&&location.pathname.includes('/edit')){
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'jwt': user.jwt,
+                    'jwt2': user.jwt2
+                },
+                body: JSON.stringify(listing)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong');
+                    }
+                })
+                .then(data => {
+                    console.log('Success update:', data );
+                    history.push(`/listing/${id}`)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }else{
+            const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'jwt': user.jwt,
+                    'jwt2': user.jwt2
+                },
+                body: JSON.stringify(listing)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong');
+                    }
+                })
+                .then(data => {
+                    console.log('Success:', data );
+                    history.push(`/listing/${data.DATA._id}`)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'jwt': user.jwt,
-                'jwt2': user.jwt2
-            },
-            body: JSON.stringify(listing)
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Something went wrong');
-                }
-            })
-            .then(data => {
-                console.log('Success:', data );
-                history.push(`/listing/${data.DATA._id}`)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
         event.preventDefault();
     }
     const handleImageUpload = () => {
         // @ts-ignore
         const { files } = document.querySelector('input[type="file"]')
         const formData = new FormData();
-        console.log(files)
+
         formData.append('file', files[0]);
         // replace this with your upload preset name
         formData.append('upload_preset', 'ml_default');
@@ -101,6 +174,7 @@ const ListingForm = () => {
                 <Form.Group controlId="description">
                     <Form.Label>Description</Form.Label>
                     <Form.Control
+                        required
                         type="input"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -111,6 +185,7 @@ const ListingForm = () => {
                 <Form.Group controlId="country">
                     <Form.Label>Country</Form.Label>
                     <Form.Control
+                        required
                         type="text"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -121,6 +196,7 @@ const ListingForm = () => {
                 <Form.Group controlId="city">
                     <Form.Label>City</Form.Label>
                     <Form.Control
+                        required
                         type="text"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -131,6 +207,7 @@ const ListingForm = () => {
                 <Form.Group controlId="street">
                     <Form.Label>Street</Form.Label>
                     <Form.Control
+                        required
                         type="text"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -138,9 +215,43 @@ const ListingForm = () => {
                         onChange={(e) => changeInput(e)}
                     />
                 </Form.Group>
+                <Form.Group controlId="livingSpace" >
+                    <Form.Label>Living Space</Form.Label>
+                    <Form.Control
+                        required
+                        type="number"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                        value={listing.livingSpace}
+                        onChange={(e) => changeInput(e)}
+                    />
+                </Form.Group>
+                <Form.Group controlId="price">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control
+                        required
+                        type="number"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                        value={listing.price}
+                        onChange={(e) => changeInput(e)}
+                    />
+                </Form.Group>
+                <Form.Group controlId="bedrooms">
+                    <Form.Label>Bedrooms number</Form.Label>
+                    <Form.Control
+                        required
+                        type="text"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                        value={listing.bedrooms}
+                        onChange={(e) => changeInput(e)}
+                    />
+                </Form.Group>
                 <Form.Group controlId="zipCode">
                     <Form.Label>Zip code (dd-ddd)</Form.Label>
                     <Form.Control
+                        required
                         type="text"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -189,13 +300,13 @@ const ListingForm = () => {
                     listing.images.map((url: string, index, images)=>{
 
                         return (
-                        <div className='image-div' key={url}>
-                            <div className='hidden-div'>
-                                <button className="hidden-delete-button" onClick={()=>removeImage(index)}>X</button>
-                            </div>
-                            <img src={url} alt={x} width={"100px"} height={"100px"}/>
+                            <div className='image-div' key={url}>
+                                <div className='hidden-div'>
+                                    <button className="hidden-delete-button" onClick={()=>removeImage(index)}>X</button>
+                                </div>
+                                <img src={url} alt={x} width={"100px"} height={"100px"}/>
 
-                        </div>)
+                            </div>)
                     })
                 )}
             </div>
@@ -205,3 +316,11 @@ const ListingForm = () => {
     );
 };
 export default ListingForm;
+
+
+
+
+
+
+
+
