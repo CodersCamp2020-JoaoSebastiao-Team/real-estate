@@ -98,8 +98,8 @@ const ListingForm = () => {
                     }
                 })
                 .then(data => {
-                    console.log('Success:', data );
-                    history.push(`/listing/${data.DATA._id}`)
+                    console.log('Success update:', data );
+                    history.push(`/listing/${id}`)
                 })
                 .catch((error) => {
                     console.error('Error:', error);
