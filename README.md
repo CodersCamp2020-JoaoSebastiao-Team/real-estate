@@ -22,7 +22,12 @@ W ramach piątego projektu zadaniem naszego zespołu było opracowanie frontendu
 ### Demo
 Wersja demonstracyjna aplikacji jest dostępna [TUTAJ](https://real-estate-coders-camp.herokuapp.com/)
 
-![Ekran startowy](/src/asstets/ui/home.png)
+####Widok Home
+![Ekran startowy](/src/asstets/ui/home1.png)
+
+![Ekran startowy](/src/asstets/ui/home2.png)
+
+![Ekran startowy](/src/asstets/ui/home3.png)
 ### Cel projektu
 Celem projektu było przygotowanie internetowej platformy do handlu nieruchomościami. Aplikacja została stworzona w React.js.
 
@@ -40,6 +45,33 @@ Celem projektu było przygotowanie internetowej platformy do handlu nieruchomoś
 - React.JS
 - TypeScript
 - scss
+### Działanie aplikacji
+#### Odnośnik buy
+Pokazuje wszystkie ogłoszenia
+
+![Buy](/src/asstets/ui/buy.png)
+#### ogłoszenie
+Wchodząc na ogłoszenie z listy ogłoszeń można zobaczyć dokładne informacje o ogłoszeniu.
+
+![Listing1](/src/asstets/ui/listing1.png)
+
+![Listing2](/src/asstets/ui/listing2.png)
+#### Odnośnik office
+Pokazuje listę dostępnych biur.
+
+![Offices](/src/asstets/ui/offices.png)
+#### Po zalogowaniu przez sprzedawcę
+Zmienia się pasek menu umożliwiając sprzedaż. 
+
+![Logged](/src/asstets/ui/logged.png)
+
+Dodanie ogłoszenia:
+
+![Sell](/src/asstets/ui/sell.png)
+
+Widok własnych ogłoszeń na panelu użytkownika:
+
+![Account](/src/asstets/ui/account.png)
 
 #### W projekcie każdy z uczestników zaprezentował praktyczną znajomość poniższych zagadnień związanych z TypeScript oraz React.JS:
 - Tworzenie komponentów, formularzy z walidacją
