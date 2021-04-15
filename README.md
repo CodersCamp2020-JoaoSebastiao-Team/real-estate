@@ -25,7 +25,7 @@ Wersja demonstracyjna aplikacji jest dostępna [TUTAJ](https://real-estate-coder
 ####Widok Home
 ![Ekran startowy](/src/asstets/ui/home1.png)
 
-![Ekran startowy](/src/asstets/ui/home2.png)
+![Ekran startowy](/src/asstets/ui/home4.png)
 
 ![Ekran startowy](/src/asstets/ui/home3.png)
 ### Cel projektu
