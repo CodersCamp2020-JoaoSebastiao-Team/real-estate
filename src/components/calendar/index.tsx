@@ -36,6 +36,7 @@ class Calendar extends Component {
                 <p>{//@ts-ignore
                 (Math.abs(this.state.startDate - this.state.endDate))/(1000*3600*24)+1} Days</p>
             </div>
+            <p></p>
 
         )
 
