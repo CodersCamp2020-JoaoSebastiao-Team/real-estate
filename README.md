@@ -47,7 +47,7 @@ Celem projektu było przygotowanie internetowej platformy do handlu nieruchomoś
 - scss
 ### Działanie aplikacji
 #### Odnośnik buy
-Pokazuje wszystkie ogłoszenia
+Pokazuje wszystkie ogłoszenia 
 
 ![Buy](/src/asstets/ui/buy.png)
 #### ogłoszenie
