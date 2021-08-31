@@ -14,7 +14,7 @@ import {
 
 
 function ImageSlider() {
-    const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+    const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing`;
     const [data, setdata] = useState<IListing[]>([])
 
     useEffect(() => {

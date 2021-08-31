@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 
 
 const Offices = () => {
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/office`;
+  const url = `https://real-estate-api-coders-camp.herokuapp.com/api/office`;
 
   const [data, setdata] = useState<IOffice[]>([]);
   const [city,setCity] = useState("");

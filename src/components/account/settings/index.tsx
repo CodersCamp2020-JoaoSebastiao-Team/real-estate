@@ -20,7 +20,7 @@ const AccountContentSettings = () => {
     }
 
     function handleSubmit(event: any) {
-        const url = `https://coderscamp-real-estate.herokuapp.com/api/register`;
+        const url = `https://real-estate-api-coders-camp.herokuapp.com/api/register`;
         console.log("event: ", event);
         console.log("Submit event!!!",({
             name: event.target[0].defaultValue,

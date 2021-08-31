@@ -9,7 +9,7 @@ import { Left } from 'react-bootstrap/lib/Media';
 
 const Agents = () => {
   
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/agents`;
+  const url = `https://real-estate-api-coders-camp.herokuapp.com/api/agents`;
   // const url =  `http://localhost:8082/api/agents`;
 
   const [data, setdata] = useState<any[]>([]);

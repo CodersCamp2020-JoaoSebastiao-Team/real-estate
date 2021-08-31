@@ -11,7 +11,7 @@ import {UserContext} from "../userProvider";
 const Listing = () => {
     const {user} = useContext(UserContext);
     const location = useLocation();
-    const url = `https://coderscamp-real-estate.herokuapp.com/api${location.pathname}`;
+    const url = `https://real-estate-api-coders-camp.herokuapp.com/api${location.pathname}`;
     const [dataDetails, setdataDetails] = useState<IListing>();
     let [loading, setLoading] = useState(true);
     const [editable,setEditable] = useState<boolean>(false);

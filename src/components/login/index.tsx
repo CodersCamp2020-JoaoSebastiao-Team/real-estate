@@ -16,7 +16,7 @@ const LoginPanel = () => {
     }
 
     function HandleSubmit(event: any) {
-        const url = `https://coderscamp-real-estate.herokuapp.com/api/login`;
+        const url = `https://real-estate-api-coders-camp.herokuapp.com/api/login`;
         console.log("Submit event!!!", event.target[0].defaultValue);
         fetch(url, {
             method: 'POST',

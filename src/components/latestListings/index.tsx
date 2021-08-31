@@ -6,7 +6,7 @@ import { IListing } from '../../interfaces'
 
 const LatestListings = () => {
     let [loading, setLoading] = useState(true);
-    const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+    const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing`;
     const [data, setdata] = useState<IListing[]>([]);
     const size = 6;
     useEffect(() => {
