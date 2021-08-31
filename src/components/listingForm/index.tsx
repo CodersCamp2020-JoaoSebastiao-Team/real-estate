@@ -15,7 +15,7 @@ const ListingForm = () => {
     const history = useHistory();
     // @ts-ignore
     const { id } = useParams();
-    const url = `https://coderscamp-real-estate.herokuapp.com/api/listing/${id}`;
+    const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing/${id}`;
     const {user} = useContext(UserContext)
     const [listing, setListing] = useState<IListing2>({
         description: '',
@@ -104,7 +104,7 @@ const ListingForm = () => {
                     console.error('Error:', error);
                 });
         }else{
-            const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+            const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing`;
             fetch(url, {
                 method: 'POST',
                 headers: {

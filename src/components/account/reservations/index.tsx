@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { UserContext } from '../../../userProvider'
 
 const AccountContentReservations = () => {
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+  const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing`;
   const [data, setdata] = useState<IListing[]>([])
   const { user } = useContext(UserContext);
   let [loading, setLoading] = useState(true);

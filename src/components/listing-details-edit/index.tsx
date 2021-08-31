@@ -10,7 +10,7 @@ import {UserContext} from "../../userProvider";
 const ListingDetailsEdit = (props: listingProps) => {
   const images = [];
   const {user} = useContext(UserContext)
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/listing/${props.id}`;
+  const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing/${props.id}`;
   if (props.url) {
     for (const image of props.url) {
       images.push({

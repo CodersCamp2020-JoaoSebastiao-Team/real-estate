@@ -7,7 +7,7 @@ import './index.scss';
 
 const Location:React.FC<{city: any ,inputProp:any, bedroom:any, hometype: any}> = ({ city, inputProp, bedroom, hometype }) => {
   
-  const url = `https://coderscamp-real-estate.herokuapp.com/api/listing`;
+  const url = `https://real-estate-api-coders-camp.herokuapp.com/api/listing`;
   const [data, setdata] = useState<IListing[]>([]);
   
   useEffect(() => {
